@@ -11,7 +11,7 @@ def get_year_links(site):
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36'
     }
 
-    response = requests.get(site, timeout=3, headers=headers)
+    response = requests.get(site, timeout=10, headers=headers)
     soup = BeautifulSoup(response.text, 'html.parser')
     print(soup)
     all_case_links = []
@@ -21,6 +21,8 @@ def get_year_links(site):
 
     return all_case_links
 
+# # Test get_years_links - it seems to not be working
+# print(get_year_links('https://www.bailii.org/ew/cases/EWCA/Civ/2015/'))
 
 def get_case_details(link_list):
 
@@ -138,5 +140,5 @@ def scraper(years):
         time.sleep(2)
   
 if __name__ == "__main__":
-    years_to_scrape = [str(y) for y in range(2025)]
+    years_to_scrape = [str(y) for y in range(2025, 2026)]
     scraper(years_to_scrape)
