@@ -105,11 +105,13 @@ def get_case_details(link_list):
       case_detail_list.append(case_dict)
       print(f'{link} done')
 
+    time.sleep(1) 
+
   return case_detail_list
 
 def scraper(years):
     base_url = "https://www.bailii.org/ew/cases/EWCA/Civ/{}/"
-    output_dir = "output"
+    output_dir = "data/cases_by_year"
     os.makedirs(output_dir, exist_ok=True)
 
     for year in years:
@@ -136,5 +138,5 @@ def scraper(years):
         time.sleep(2)
   
 if __name__ == "__main__":
-    years_to_scrape = ["2025"] 
+    years_to_scrape = [str(y) for y in range(2025)]
     scraper(years_to_scrape)
