@@ -50,7 +50,7 @@ def filter_by_keywords(df, column, keywords):
 # One stop shop to transform the data
 def data_transformation(filename, keywords=["FAMILY", "IMMIGRATION", "CRIMINAL"]):
 
-    output_dir = "data/years_processed"
+    output_dir = "data/cases_by_year_processed"
 # Retrieves the webscrapped data
     with open(filename, "r", encoding="utf-8") as file:
         data = json.load(file)
