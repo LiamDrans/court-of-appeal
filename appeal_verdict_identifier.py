@@ -194,4 +194,4 @@ def process_outcomes_for_year(filename):
         pickle.dump(df, file)
 
 if __name__ == "__main__":
-    process_outcomes_for_year(r'data\cases_by_year_processed\cases_2025_processed.pkl')
+    process_outcomes_for_year(r'data\cases_by_year_processed\cases_2015_processed.pkl')
