@@ -3,6 +3,7 @@ import pandas as pd
 import ast
 import re
 from collections import defaultdict
+from difflib import get_close_matches
 
 # Issue is law firm name - still susceptable to typos -
 
@@ -121,9 +122,10 @@ stats_df['Win_Rate'] = (stats_df['Wins'] / (stats_df['Wins'] + stats_df['Losses'
 # Save statistics as CSV
 stats_df.to_csv('data/law_firm_statistics/law_firm_statistics.csv', index=False)
 
-firms = ["Government"]
-pattern = '|'.join(firms)
-stats_df = stats_df[stats_df['Law_Firm'].str.contains(pattern, case=False, na=False)]
+# firms = ["Government"]
+# pattern = '|'.join(firms)
+# stats_df = stats_df[stats_df['Law_Firm'].str.contains(pattern, case=False, na=False)]
+# print(stats_df)
 
 def firm_match(firm_data, target="government"):
     target = target.lower()
@@ -138,8 +140,62 @@ def firm_match(firm_data, target="government"):
             return True
     return False
 
-
+# Firm match applies to the original dataframe - i.e. returning all case links for that law firm
 print(len(df.loc[df['outcome'] == 'UNCLEAR']))
 print((df.loc[df['law_firms'] == 'UNCLEAR']))
 # Apply filter
 print(df[df['law_firms'].apply(lambda x: firm_match(x))][['link', 'outcome', 'year']])
+
+print(stats_df)
+
+# group the law firms into matches
+visited = set()
+groups = []
+
+# Similarity threshold (0.8 is moderate; adjust as needed)
+similarity_cutoff = 0.9
+
+# Step 1: Grouping similar names
+for firm in stats_df['Law_Firm']:
+    if firm not in visited:
+        matches = get_close_matches(firm, stats_df['Law_Firm'], cutoff=similarity_cutoff)
+        visited.update(matches)
+        groups.append(matches)
+
+# Convert all groups to sets before merging
+groups = [set(group) for group in groups]
+
+# Step 2: Merge overlapping groups (Union-Find-like)
+merged = True
+while merged:
+    merged = False
+    new_groups = []
+    while groups:
+        first, *rest = groups
+        first = set(first)
+        changed = True
+        while changed:
+            changed = False
+            rest2 = []
+            for g in rest:
+                if first & g:  # Overlap found
+                    first |= g
+                    changed = True
+                else:
+                    rest2.append(g)
+            rest = rest2
+        new_groups.append(first)
+        groups = rest
+        merged = True if changed else merged
+    groups = new_groups
+
+# Step 3: Sort groups for readability
+sorted_groups = [sorted(group) for group in groups]
+sorted_groups.sort()
+
+# Display groups nicely
+for idx, group in enumerate(sorted_groups, 1):
+    print(f"Group {idx}:")
+    for firm in group:
+        print(f"  - {firm}")
+    print()
