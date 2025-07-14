@@ -1,11 +1,11 @@
 Law_Firm,Wins,Losses,Neutral_Appearances,Appellant_Appearances,Respondent_Appearances,Win_Rate
-winston and strawn london llp,0,1,0,1,0,0.0
 slaughter and may,20,10,0,10,20,66.66666666666666
+winston and strawn london llp,0,1,0,1,0,0.0
 competition and markets authority,4,4,1,4,4,50.0
 tlt llp,8,3,0,3,8,72.72727272727273
 hogan lovells international llp,16,27,0,23,20,37.2093023255814
-bird & bird llp,16,17,0,10,23,48.484848484848484
 eip europe llp,3,1,0,1,3,75.0
+bird & bird llp,16,17,0,10,23,48.484848484848484
 withers llp,9,9,1,14,4,50.0
 reynolds porter chamberlain llp,23,22,0,26,19,51.11111111111111
 kennedys law llp,9,8,1,8,9,52.94117647058824
@@ -41,8 +41,8 @@ reynolds dawson,0,0,1,0,0,
 general counsel,84,40,0,30,94,67.74193548387096
 solicitor for hmrc,10,3,0,3,10,76.92307692307693
 linklaters llp,18,10,2,10,18,64.28571428571429
-hmrc solicitor's office,22,10,0,10,22,68.75
 legal services,13,7,0,6,14,65.0
+hmrc solicitor's office,22,10,0,10,22,68.75
 sterling lawyers ltd,0,1,0,1,0,0.0
 latham & watkins llp,1,1,0,1,1,50.0
 coram children's legal centre,0,3,1,3,0,0.0
@@ -58,8 +58,8 @@ curzon green solicitors,0,1,0,0,1,0.0
 bryan cave leighton paisner llp,5,3,1,3,5,62.5
 baker & mckenzie llp,8,10,0,9,9,44.44444444444444
 weightmans llp,25,21,0,17,29,54.347826086956516
-slater,4,4,0,1,7,50.0
 gordon solicitors,0,1,0,0,1,0.0
+slater,4,4,0,1,7,50.0
 general dental council in house legal advisory service,1,0,0,1,0,100.0
 freshfields bruckhaus deringer llp,16,13,7,14,15,55.172413793103445
 squire patton boggs (uk) llp,5,9,0,6,8,35.714285714285715
@@ -67,8 +67,8 @@ andrew storch solicitors,1,4,0,5,0,20.0
 browne jacobson,1,2,0,1,2,33.33333333333333
 herbert smith freehills llp,20,15,5,16,19,57.14285714285714
 branch austin mccormick llp,0,0,1,0,0,
-equality,0,0,34,0,0,
 human rights commission,0,0,36,0,0,
+equality,0,0,34,0,0,
 brabners llp,2,2,0,2,2,50.0
 his majesty's revenue & customs solicitor's office,1,0,0,0,1,100.0
 pinna goldberg,0,1,0,1,0,0.0
@@ -89,8 +89,8 @@ latham & watkins (london) llp,8,2,0,5,5,80.0
 west sussex county council,0,1,0,1,0,0.0
 "danielle grinsted, good law solicitors llp",1,0,0,0,1,100.0
 spearpoint franks solicitors ltd,1,0,0,0,1,100.0
-barring service,1,0,0,0,1,100.0
 disclosure,2,0,0,1,1,100.0
+barring service,1,0,0,0,1,100.0
 mccue & partners llp,1,0,0,1,0,100.0
 fieldfisher,3,2,0,2,3,60.0
 gordons partnership,1,0,0,0,1,100.0
@@ -106,14 +106,14 @@ unison legal services,2,4,0,3,3,33.33333333333333
 birketts llp,5,5,0,6,4,50.0
 brandsmiths,4,6,0,10,0,40.0
 ward hadaway llp,2,0,0,0,2,100.0
-dabbs llp,0,1,0,1,0,0.0
 hackett,0,1,0,1,0,0.0
+dabbs llp,0,1,0,1,0,0.0
 morrison spowart solicitors,2,1,0,3,0,66.66666666666666
 local authority,2,1,0,2,1,66.66666666666666
 keidan harrison llp,1,0,0,0,1,100.0
 bhatt murphy solicitors,2,5,0,5,2,28.57142857142857
-solicitor to hm revenue,51,23,0,19,55,68.91891891891892
 customs,66,27,0,23,70,70.96774193548387
+solicitor to hm revenue,51,23,0,19,55,68.91891891891892
 jurit llp,0,1,0,0,1,0.0
 dallas & co solicitors,0,0,1,0,0,
 astute law limited,0,1,0,1,0,0.0
@@ -130,8 +130,8 @@ one legal,1,2,0,2,1,33.33333333333333
 wildan legal solicitors,0,1,0,1,0,0.0
 russell cooke llp,1,0,0,0,1,100.0
 "paris smith, winchester",1,0,0,0,1,100.0
-partners llp,2,6,2,5,3,25.0
 miles,1,1,0,2,0,50.0
+partners llp,2,6,2,5,3,25.0
 hill dickinson llp,11,18,0,15,14,37.93103448275862
 haringey council legal services,1,1,1,0,2,50.0
 associates,1,1,0,2,0,50.0
@@ -167,8 +167,8 @@ george green llp,1,3,0,3,1,25.0
 stephensons solicitors llp,4,2,0,1,5,66.66666666666666
 russells,1,1,0,2,0,50.0
 marriott harrison llp,1,0,0,0,1,100.0
-bockius uk llp,2,0,0,0,2,100.0
 "morgan, lewis",2,0,0,0,2,100.0
+bockius uk llp,2,0,0,0,2,100.0
 carson kaye ltd,0,1,0,1,0,0.0
 central england law centre,0,2,0,2,0,0.0
 birmingham city council legal & governance department,1,0,0,0,1,100.0
@@ -218,8 +218,8 @@ carpenters group solicitors,1,0,0,1,0,100.0
 express solicitors,0,1,0,0,1,0.0
 hopkin murray beskine solicitors,0,2,0,1,1,0.0
 surrey county council legal & democratic services,1,0,0,1,0,100.0
-horwich farrelly,2,0,0,2,0,100.0
 keoghs llp,12,15,0,6,21,44.44444444444444
+horwich farrelly,2,0,0,2,0,100.0
 quinn emanuel urquhart & sullivan uk llp,10,9,0,10,9,52.63157894736842
 st john legal,0,1,0,1,0,0.0
 sterling stamp law ltd,0,1,0,1,0,0.0
@@ -246,8 +246,8 @@ davitt jones bould,1,0,0,0,1,100.0
 turpin miller,1,1,0,1,1,50.0
 white & case llp,2,10,0,9,3,16.666666666666664
 "richard buxton solicitors, cambridge",0,1,0,1,0,0.0
-shepherd,2,1,2,2,1,66.66666666666666
 wedderburn,1,0,0,0,1,100.0
+shepherd,2,1,2,2,1,66.66666666666666
 dac beachcroft claims limited,2,2,0,2,2,50.0
 jf law limited,1,0,0,0,1,100.0
 womble bond dickinson (uk) llp,2,4,0,2,4,33.33333333333333
@@ -330,10 +330,10 @@ deighton pierce glynn solicitors,0,1,0,1,0,0.0
 defendant legal department,0,1,0,0,1,0.0
 barings llp,0,1,0,1,0,0.0
 dla piper llp,1,1,0,1,1,50.0
-simmons llp,1,3,0,2,2,25.0
 simmons,1,3,0,2,2,25.0
-hmrc solicitors office,9,2,0,2,9,81.81818181818183
+simmons llp,1,3,0,2,2,25.0
 legal service,2,1,0,2,1,66.66666666666666
+hmrc solicitors office,9,2,0,2,9,81.81818181818183
 capital law,0,1,1,1,0,0.0
 thompsons solicitors,2,4,1,2,4,33.33333333333333
 willkie farr & gallagher (uk) llp,1,1,0,1,1,50.0
@@ -351,12 +351,12 @@ ignition law ltd,0,1,0,1,0,0.0
 david auld & co,0,1,0,1,0,0.0
 thaliwal & veja solicitors,1,0,0,0,1,100.0
 sintons llp,1,1,0,1,1,50.0
-dentons uk,3,4,0,4,3,42.857142857142854
 middle east llp,2,4,0,4,2,33.33333333333333
+dentons uk,3,4,0,4,3,42.857142857142854
 allen,1,1,0,1,1,50.0
 hodge jones,0,1,2,1,0,0.0
-democratic services,3,1,0,0,4,75.0
 ealing legal,1,0,0,0,1,100.0
+democratic services,3,1,0,0,4,75.0
 hmrc,8,3,0,3,8,72.72727272727273
 goodenough ring solicitors,1,1,0,1,1,50.0
 bdb pitmans,1,0,0,0,1,100.0
@@ -386,8 +386,8 @@ a&o shearman,0,1,0,1,0,0.0
 "shape partnership services, law & governance",1,0,0,0,1,100.0
 shoosmiths llp,2,10,1,6,6,16.666666666666664
 pennington manches cooper llp,1,1,0,1,1,50.0
-west midlands police,1,1,0,0,2,50.0
 east midlands police legal services,0,2,0,0,2,0.0
+west midlands police,1,1,0,0,2,50.0
 joint legal services for staffordshire police,0,1,0,0,1,0.0
 kpmg llp,5,9,0,7,7,35.714285714285715
 mcdermott will & emery (uk) llp,0,1,0,1,0,0.0
@@ -521,8 +521,8 @@ brachers llp,0,1,0,1,0,0.0
 furley page llp,0,1,0,1,0,0.0
 jacksons law firm,0,1,0,0,1,0.0
 government legal dept,1,0,0,1,0,100.0
-tedstone,0,1,0,0,1,0.0
 "tedstone, george",0,1,0,0,1,0.0
+tedstone,0,1,0,0,1,0.0
 bevan brittan llp for second respondent jenni richards kc (instructed by capital law,0,0,1,0,0,
 tendring council,0,1,0,1,0,0.0
 scott+scott uk llp,0,3,0,2,1,0.0
@@ -605,8 +605,8 @@ morrisons solicitors llp,0,8,0,7,1,0.0
 middlesbrough council,1,0,0,0,1,100.0
 victoria lord,1,0,0,0,1,100.0
 council of city of newcastle upon tyne,1,0,0,0,1,100.0
-levy solicitors,0,1,0,1,0,0.0
 levy,0,1,0,1,0,0.0
+levy solicitors,0,1,0,1,0,0.0
 general counsel to commissioners for hmrc,2,1,0,0,3,66.66666666666666
 solicitor,3,1,0,0,4,75.0
 richard slade & company,0,2,0,0,2,0.0
@@ -621,8 +621,8 @@ tkd solicitors,1,1,0,1,1,50.0
 rechtschaffen law,2,1,0,1,2,66.66666666666666
 "gibson, dunn & crutcher uk llp",3,1,0,1,3,75.0
 "legal services, greater manchester police",1,0,0,0,1,100.0
-"legal services directorate, avon",1,1,0,1,1,50.0
 somerset constabulary,1,1,0,1,1,50.0
+"legal services directorate, avon",1,1,0,1,1,50.0
 blm law,2,3,1,2,3,40.0
 kirkland,2,1,0,1,2,66.66666666666666
 ellis international llp,2,1,0,1,2,66.66666666666666
@@ -715,8 +715,8 @@ jenner & block london llp,0,1,0,0,1,0.0
 lazarev cleaver llp,1,0,0,1,0,100.0
 "legal group enforcement & market oversight, hmcts customer investigation team",0,0,1,0,0,
 holden & co solicitors,0,1,0,1,0,0.0
-folkestone,1,0,0,0,1,100.0
 hydistrict council - legal services,1,0,0,0,1,100.0
+folkestone,1,0,0,0,1,100.0
 marks & clerk law llp,0,2,0,1,1,0.0
 sl5 legal/tuckers solicitors,0,1,0,1,0,0.0
 gardner leader llp,2,1,0,0,3,66.66666666666666
@@ -726,16 +726,16 @@ jg solicitors,0,1,0,0,1,0.0
 moore barlow llp,1,3,0,4,0,25.0
 ingram winter green llp,1,2,0,1,2,33.33333333333333
 mcdermott will & emery uk llp,0,1,0,0,1,0.0
-co solicitors,0,2,0,2,0,0.0
 paul martin,0,1,0,1,0,0.0
+co solicitors,0,2,0,2,0,0.0
 lb lambeth legal services,1,0,0,0,1,100.0
 bond turner solicitors,1,0,0,1,0,100.0
 "manminder mangat, bi-borough shared legal services",1,0,0,1,0,100.0
-bridger law,0,1,0,0,1,0.0
 luke,0,1,0,0,1,0.0
+bridger law,0,1,0,0,1,0.0
 sidley austin llp,3,4,0,4,3,42.857142857142854
-peters solicitors llp,3,0,0,2,1,100.0
 peters,3,0,0,2,1,100.0
+peters solicitors llp,3,0,0,2,1,100.0
 rpc llp,3,2,0,2,3,60.0
 coninghams,0,1,0,0,1,0.0
 brett wilson llp,2,0,0,1,1,100.0
@@ -762,8 +762,8 @@ mills & co solicitors ltd,0,1,0,1,0,0.0
 in-house legal team,1,0,0,0,1,100.0
 saunders law,1,1,0,1,1,50.0
 dorsey & whitney (europe) llp,0,2,0,2,0,0.0
-governance,1,0,0,0,1,100.0
 dudley metropolitan borough council (law,1,0,0,0,1,100.0
+governance,1,0,0,0,1,100.0
 lawcomm solicitors,0,1,0,1,0,0.0
 david cooper & co,1,0,0,0,1,100.0
 hb public law,0,2,0,0,2,0.0
@@ -845,8 +845,8 @@ hopkin murray beskine,3,6,0,6,3,33.33333333333333
 wilmot & co solicitors llp,2,0,0,0,2,100.0
 civil aviation authority,1,0,0,0,1,100.0
 "director of legal services, welsh government",0,1,0,1,0,0.0
-"legal services, hmrc",0,0,2,0,0,
 solicitor's office,2,0,2,2,0,100.0
+"legal services, hmrc",0,0,2,0,0,
 surrey county council legal department,0,1,0,0,1,0.0
 friends of earth ltd.,0,0,1,0,0,
 stevens & bolton llp,2,1,0,0,3,66.66666666666666
@@ -863,8 +863,8 @@ smk & smb,0,1,0,0,1,0.0
 tmp solicitors llp,1,3,0,4,0,25.0
 costigan king,0,1,0,1,0,0.0
 law lane solicitors,0,3,0,3,0,0.0
-reath llp,1,0,0,0,1,100.0
 faegre drinker biddle,1,0,0,0,1,100.0
+reath llp,1,0,0,0,1,100.0
 seddons law llp,0,1,0,1,0,0.0
 johnsons solicitors,1,0,0,1,0,100.0
 fca,0,1,0,0,1,0.0
@@ -957,8 +957,8 @@ alston & bird (city) llp,0,1,0,0,1,0.0
 james smith (planning law services) ltd.,0,1,0,1,0,0.0
 hertsmere borough council,3,0,0,1,2,100.0
 scott moncrieff,1,0,0,1,0,100.0
-associates ltd for hxa,1,0,0,1,0,100.0
 bolt burdon kemp for yxa,1,0,0,1,0,100.0
+associates ltd for hxa,1,0,0,1,0,100.0
 browne jacobson llp in yxa appeal,0,1,0,0,1,0.0
 dwf llp in hxa appeal,0,1,0,0,1,0.0
 "clifford, johnston & company",0,1,0,1,0,0.0
@@ -1015,8 +1015,8 @@ asserson,0,2,0,2,0,0.0
 chief legal officer,1,0,0,0,1,100.0
 clk legal,1,0,0,1,0,100.0
 setfords,0,1,0,0,1,0.0
-reeve llp,1,1,0,0,2,50.0
 mills,1,1,0,0,2,50.0
+reeve llp,1,1,0,0,2,50.0
 addleshaw goddard solicitors,0,1,1,1,0,0.0
 leeds city council legal services,1,0,0,0,1,100.0
 clientearth,0,1,0,1,0,0.0
@@ -1061,10 +1061,10 @@ unite union,1,0,0,1,0,100.0
 beaumont legal services,0,1,0,0,1,0.0
 lester aldridge llp,1,1,0,0,2,50.0
 basildon district council,1,0,0,0,1,100.0
-tract society of britain legal department,0,1,0,1,0,0.0
 watch tower bible,0,1,0,1,0,0.0
-manchester university nhs foundation trust,0,1,0,0,1,0.0
+tract society of britain legal department,0,1,0,1,0,0.0
 great ormond street hospital for sick children nhs foundation trust,0,1,0,0,1,0.0
+manchester university nhs foundation trust,0,1,0,0,1,0.0
 hampshire county council,1,0,0,0,1,100.0
 legal,2,3,0,2,3,40.0
 historic england governance,1,0,0,0,1,100.0
@@ -1095,8 +1095,8 @@ mayo wynne baxter llp,1,2,0,2,1,33.33333333333333
 maidenhead,0,1,0,0,1,0.0
 royal borough of windsor,2,1,0,0,3,66.66666666666666
 m law llp,0,1,0,1,0,0.0
-carr solicitors,1,0,0,1,0,100.0
 rich,1,0,0,1,0,100.0
+carr solicitors,1,0,0,1,0,100.0
 bond adams llp,0,1,0,0,1,0.0
 griffin law,0,1,0,1,0,0.0
 hmrc' solicitor's office,1,0,0,0,1,100.0
@@ -1192,8 +1192,8 @@ gwynedd council legal services,0,1,0,1,0,0.0
 "mark underhill, nasuwt",1,0,0,0,1,100.0
 sl5 legal / tuckers solicitors,0,1,0,1,0,0.0
 rosenblatt ltd,0,2,0,2,0,0.0
-debevoise,1,0,0,0,1,100.0
 plimpton,1,0,0,0,1,100.0
+debevoise,1,0,0,0,1,100.0
 mccormicks solicitors,1,0,0,0,1,100.0
 williams powell,0,1,0,1,0,0.0
 ofcom,1,1,0,0,2,50.0
@@ -1261,8 +1261,8 @@ jones chase employment lawyers,0,1,0,1,0,0.0
 o h parsons llp,1,0,0,0,1,100.0
 lipman karas llp,2,3,0,3,2,40.0
 national legal service solicitors,1,0,0,1,0,100.0
-west midlands police joint legal department,0,1,0,0,1,0.0
 staffordshire,0,1,0,0,1,0.0
+west midlands police joint legal department,0,1,0,0,1,0.0
 "asb law llp, origin two, 106 high street, crawley, west sussex, rh10 1bf",1,0,0,0,1,100.0
 tilley bailey & irvine llp,1,0,0,1,0,100.0
 david salcedo,1,0,0,0,1,100.0
@@ -1304,8 +1304,8 @@ jefferies essex llp,0,2,0,2,0,0.0
 shearman & sterling (london) llp,1,1,0,2,0,50.0
 surrey heath borough council,0,1,0,0,1,0.0
 taylor rose ttkw,3,2,0,5,0,60.0
-co ltd,0,1,0,1,0,0.0
 harrison drury,0,1,0,1,0,0.0
+co ltd,0,1,0,1,0,0.0
 arkrights solicitors,0,9,0,8,1,0.0
 rainer hughes,0,5,0,3,2,0.0
 watford borough council,2,0,0,1,1,100.0
@@ -1396,8 +1396,8 @@ seddons solicitors,2,0,0,2,0,100.0
 porter dodson llp,2,0,0,1,1,100.0
 gillian radford & co solicitors,1,2,0,3,0,33.33333333333333
 city of westminster legal services,1,0,0,0,1,100.0
-governance department,1,0,0,0,1,100.0
 birmingham legal,1,0,0,0,1,100.0
+governance department,1,0,0,0,1,100.0
 rossides caine solicitors,0,1,0,0,1,0.0
 baileyfields,0,1,0,1,0,0.0
 medical protection society,1,1,0,1,1,50.0
@@ -1457,14 +1457,14 @@ howell-jones llp,1,0,0,0,1,100.0
 eip legal,2,0,0,0,2,100.0
 ocl solicitors,0,1,0,1,0,0.0
 bassetlaw district council,1,0,0,0,1,100.0
-bristol law centre,1,0,0,1,0,100.0
 avon,2,0,0,2,0,100.0
+bristol law centre,1,0,0,1,0,100.0
 bristol city council legal department,0,1,0,0,1,0.0
 excello law,0,1,0,0,1,0.0
 k's legal services department,0,1,0,0,1,0.0
 stephenson harwood,1,0,0,0,1,100.0
-"linklaters llp, hogan lovells llp, squire patton boggs (uk) llp, shearman & sterling (london) llp",1,0,0,0,1,100.0
 dorr,1,0,0,0,1,100.0
+"linklaters llp, hogan lovells llp, squire patton boggs (uk) llp, shearman & sterling (london) llp",1,0,0,0,1,100.0
 dacorum bc legal department,1,0,0,0,1,100.0
 milners solicitors,0,1,0,1,0,0.0
 peters & peters llp,2,0,0,0,2,100.0
@@ -1532,8 +1532,8 @@ lee & thompson llp,1,3,0,0,4,25.0
 ahmed rahman carr solicitors,0,1,0,1,0,0.0
 gordon dadds llp,2,5,0,4,3,28.57142857142857
 haven solicitors ltd,0,1,0,1,0,0.0
-staffordshire police,1,0,0,0,1,100.0
 west midland police joint legal services,1,0,0,0,1,100.0
+staffordshire police,1,0,0,0,1,100.0
 sintons law,1,0,0,0,1,100.0
 kitsons llp,1,1,0,2,0,50.0
 national proceeds of crime unit,0,1,0,0,1,0.0
@@ -1565,11 +1565,11 @@ oxfordshire county council,0,1,0,0,1,0.0
 brethertons solicitors,0,1,0,0,1,0.0
 wilson solicitors,0,1,0,0,1,0.0
 oxford law group,0,2,0,0,2,0.0
-gibson dunn,1,0,0,1,0,100.0
 crutcher uk llp,1,0,0,1,0,100.0
+gibson dunn,1,0,0,1,0,100.0
 capsticks,2,1,0,0,3,66.66666666666666
-co. ltd,0,1,0,1,0,0.0
 matthew gold,0,1,0,1,0,0.0
+co. ltd,0,1,0,1,0,0.0
 oxfordshire county council legal services,1,0,0,0,1,100.0
 chief coroner,0,1,0,0,1,0.0
 dph legal,0,1,0,1,0,0.0
@@ -1596,8 +1596,8 @@ pensions regulator,2,0,0,0,2,100.0
 "thompsons solicitors, newcastle",0,1,0,0,1,0.0
 richard buxton environmental & public law,4,4,0,4,4,50.0
 rainer hughes for 1st respondent lawrence mcdonald (instructed by asw solicitors,1,0,0,0,1,100.0
-nuneaton,0,1,0,0,1,0.0
 bedworth borough council,0,1,0,0,1,0.0
+nuneaton,0,1,0,0,1,0.0
 advocates,1,3,0,2,2,25.0
 lexlaw solicitors,0,1,0,1,0,0.0
 hackney legal services,1,0,0,0,1,100.0
@@ -1637,9 +1637,9 @@ general medical council,0,2,0,0,2,0.0
 k & l gates llp,1,2,0,2,1,33.33333333333333
 brain chase coles solicitors,0,1,0,1,0,0.0
 hampshire legal services,1,0,0,0,1,100.0
-"kain knight costs lawyers, as agents for slater",1,0,0,1,0,100.0
 gordon (uk) ltd,1,0,0,1,0,100.0
 forster dean solicitors,1,0,0,1,0,100.0
+"kain knight costs lawyers, as agents for slater",1,0,0,1,0,100.0
 morrison spowart,1,1,0,2,0,50.0
 lewisham lbc legal services,1,0,0,0,1,100.0
 francine morris,0,1,0,0,1,0.0
@@ -1727,8 +1727,8 @@ carpmaels & ransford llp,0,1,0,1,0,0.0
 mackrell turner garrett,1,3,0,3,1,25.0
 "head of professionals regulation (fitness to practise), general pharmaceutical council",1,0,0,0,1,100.0
 child & child,1,2,0,1,2,33.33333333333333
-mccloy llp,1,0,0,0,1,100.0
 "milbank, tweed, hadley",1,0,0,0,1,100.0
+mccloy llp,1,0,0,0,1,100.0
 bosworth borough council,1,0,0,0,1,100.0
 hinckley,1,0,0,0,1,100.0
 "p jaques on behalf of city solicitor, wakefield council",1,0,0,0,1,100.0
@@ -1784,8 +1784,8 @@ stephenson hardwood llp,0,1,0,1,0,0.0
 iliffes booth bennett,0,1,0,1,0,0.0
 dexter henry & co solicitors,1,0,0,0,1,100.0
 david wyld & co solicitors,0,1,0,1,0,0.0
-lamb,0,1,0,1,0,0.0
 holmes llp,0,1,0,1,0,0.0
+lamb,0,1,0,1,0,0.0
 tollers llp,1,0,0,0,1,100.0
 medway council,1,0,0,0,1,100.0
 watson ramsbottom solicitors,0,1,0,1,0,0.0
@@ -1812,8 +1812,8 @@ we solicitors llp,1,0,0,1,0,100.0
 russell cooke solicitors,1,1,0,1,1,50.0
 radcliffeslebrasseur solicitors,0,1,0,0,1,0.0
 hr law,0,1,0,1,0,0.0
-"bentleys, stokes",0,1,0,1,0,0.0
 lowless,0,1,0,1,0,0.0
+"bentleys, stokes",0,1,0,1,0,0.0
 mansfield shared legal services,1,0,0,0,1,100.0
 ashfield,1,0,0,0,1,100.0
 haworth holt bell limited,0,1,0,1,0,0.0
@@ -1854,8 +1854,8 @@ cica legal services,0,1,0,1,0,0.0
 law practice solicitors,0,1,0,1,0,0.0
 hasbro legal department,1,0,0,1,0,100.0
 "community law partnership ltd., birmingham",0,1,0,1,0,0.0
-general solicitor,2,0,0,0,2,100.0
 counsel to hmrc,2,0,0,0,2,100.0
+general solicitor,2,0,0,0,2,100.0
 knights solicitors,0,1,0,1,0,0.0
 rw by his litigation friend official solicitor,1,0,0,0,1,100.0
 appleman legal,0,1,0,1,0,0.0
@@ -1890,8 +1890,8 @@ best solicitors,1,2,0,3,0,33.33333333333333
 major family law solicitors,1,0,0,0,1,100.0
 direct public access,1,3,0,4,0,25.0
 cognitive law limited,1,0,0,0,1,100.0
-treasury solicitor for appellants hugh tomlinson qc,1,0,0,0,1,100.0
 sara mansoori (instructed by bindmans,1,0,0,0,1,100.0
+treasury solicitor for appellants hugh tomlinson qc,1,0,0,0,1,100.0
 hillingdon law centre,0,1,0,1,0,0.0
 northumberland county council legal services,1,1,0,1,1,50.0
 royds withy king,3,0,0,1,2,100.0
@@ -1943,8 +1943,8 @@ rpc solicitors,0,1,0,0,1,0.0
 partners,1,1,0,1,1,50.0
 imran khan,0,1,0,1,0,0.0
 tim johnson/law,1,0,0,1,0,100.0
-davis simmonds,0,1,0,1,0,0.0
 "donaghey, high street, gillingham, me71be",0,1,0,1,0,0.0
+davis simmonds,0,1,0,1,0,0.0
 "invicta law ltd, union street, maidstone me14 1pt",1,0,0,0,1,100.0
 "patrick lawrence solicitors, railway pl, gravesend da12 1ap",1,0,0,0,1,100.0
 womble bond dickinson uk llp,0,1,0,0,1,0.0
@@ -1953,8 +1953,8 @@ south west london law centre,1,0,0,1,0,100.0
 gosport borough council legal services dept,0,1,0,0,1,0.0
 ince & co llp,4,2,0,2,4,66.66666666666666
 "wace morgan, shrewsbury",1,0,0,1,0,100.0
-cps appeals,1,0,0,0,1,100.0
 review unit,1,0,0,0,1,100.0
+cps appeals,1,0,0,0,1,100.0
 staffordshire county council,1,0,0,1,0,100.0
 david foster & co. solicitors,0,1,0,0,1,0.0
 moseleys solicitors,0,1,0,0,1,0.0
@@ -2037,8 +2037,8 @@ bridge mcfarland solicitors,0,1,0,0,1,0.0
 stuart & co,0,1,0,0,1,0.0
 "watson, farley & williams llp",1,0,0,0,1,100.0
 dlp piper uk llp,1,0,0,1,0,100.0
-braithwaite llp,0,1,0,0,1,0.0
 bates wells,0,1,0,0,1,0.0
+braithwaite llp,0,1,0,0,1,0.0
 harold benjamin solicitors,0,1,0,1,0,0.0
 dmh stallard,1,1,0,1,1,50.0
 pjh law,0,1,0,1,0,0.0
@@ -2049,8 +2049,8 @@ london borough of southwark legal department,1,0,0,0,1,100.0
 unity law,0,1,0,1,0,0.0
 lee & thompson,1,0,0,1,0,100.0
 morgan hall solicitors limited,0,1,0,0,1,0.0
-"democratic services, london borough of hackney",1,0,0,1,0,100.0
 "dawn carter-mcdonald, legal",1,0,0,1,0,100.0
+"democratic services, london borough of hackney",1,0,0,1,0,100.0
 "sky solicitors, ilford",0,1,0,0,1,0.0
 hlw keeble hawson llp,1,0,0,0,1,100.0
 fenwick elliott llp,2,0,0,1,1,100.0
@@ -2122,13 +2122,13 @@ stephensons,0,2,0,1,1,0.0
 parkers solicitors,0,1,0,0,1,0.0
 harvey roberts solicitors,0,1,0,0,1,0.0
 lhs solicitors llp,0,1,0,1,0,0.0
-for nottinghamshire police,1,0,0,0,1,100.0
-force solicitor for north wales police,1,0,0,0,1,100.0
-derbyshire police,1,0,0,0,1,100.0
-respective director of joint legal services for devon & cornwall police,1,0,0,0,1,100.0
 and head of special legal casework for south wales police,1,0,0,0,1,100.0
+force solicitor for north wales police,1,0,0,0,1,100.0
+respective director of joint legal services for devon & cornwall police,1,0,0,0,1,100.0
 and for staffordshire police,1,0,0,0,1,100.0
 dorset police,1,0,0,0,1,100.0
+for nottinghamshire police,1,0,0,0,1,100.0
+derbyshire police,1,0,0,0,1,100.0
 drukker solicitors,0,1,0,1,0,0.0
 community law partnership ltd.,1,0,0,1,0,100.0
 public services department of london borough of islington,1,0,0,1,0,100.0
@@ -2139,8 +2139,8 @@ public access counsel,1,0,0,1,0,100.0
 bishop & sewell llp,0,2,0,0,2,0.0
 nottingham city council legal services,0,1,0,1,0,0.0
 berg,0,1,0,1,0,0.0
-natwest mentor services,1,0,0,0,1,100.0
 rbs,1,0,0,0,1,100.0
+natwest mentor services,1,0,0,0,1,100.0
 watch tower legal department,1,0,0,0,1,100.0
 strafford law limited,0,1,0,1,0,0.0
 gordons solicitors limited,1,0,0,0,1,100.0
@@ -2206,8 +2206,8 @@ bird wilford & sale solicitors,0,1,0,1,0,0.0
 information commissioners office,0,1,0,0,1,0.0
 seddons,1,0,0,0,1,100.0
 abbotstone law,0,1,0,1,0,0.0
-royal borough of kensington,0,1,0,0,1,0.0
 chelsea legal department,0,1,0,0,1,0.0
+royal borough of kensington,0,1,0,0,1,0.0
 berwin leighton paisner,0,0,1,0,0,
 greater manchester police legal services,0,1,0,1,0,0.0
 deals & disputes solicitors llp,0,1,0,1,0,0.0
@@ -2219,8 +2219,8 @@ qualitysolicitors rubin lewis o'brien,0,1,0,1,0,0.0
 "director of law, tri-borough shared legal services",0,1,0,0,1,0.0
 powys county council legal services,0,1,0,0,1,0.0
 margraves solicitors,0,0,1,0,0,
-bark & co solicitors,1,0,0,1,0,100.0
 rainer hughes for first appellant,1,0,0,1,0,100.0
+bark & co solicitors,1,0,0,1,0,100.0
 hmrc's solicitors office,0,1,0,0,1,0.0
 goodman derrick llp,1,1,0,2,0,50.0
 newtons solicitors,0,1,0,0,1,0.0
@@ -2258,17 +2258,17 @@ derby city council legal department,1,0,0,0,1,100.0
 "legal services, powys county council",1,0,0,1,0,100.0
 "jcp solicitors, carmarthen",0,1,0,0,1,0.0
 direct access scheme,1,2,0,0,3,33.33333333333333
-financial advisors,0,1,0,1,0,0.0
 pearson solicitors,0,1,0,1,0,0.0
+financial advisors,0,1,0,1,0,0.0
 stevensdrake solicitors,0,1,0,1,0,0.0
 legal services for london borough of haringey,1,0,0,0,1,100.0
 didlaw limited,1,0,0,1,0,100.0
 elder rahimi,0,1,0,1,0,0.0
-fox,0,1,0,1,0,0.0
 partners solicitors llp,0,1,0,1,0,0.0
+fox,0,1,0,1,0,0.0
 "legal services directorate, avon & somerset police",0,1,0,0,1,0.0
-stockinger advocates,0,1,0,1,0,0.0
 solicitors,0,1,0,1,0,0.0
+stockinger advocates,0,1,0,1,0,0.0
 general medical council legal department,1,0,0,0,1,100.0
 xl catlin services se,1,0,0,0,1,100.0
 wragge lawrence graham & co llp,2,3,0,1,4,40.0
@@ -2276,8 +2276,8 @@ cameron legal ltd,0,1,0,0,1,0.0
 "angela mills, principal solicitor, oxfordshire county council",0,1,0,0,1,0.0
 "louise whitfield, deighton pierce glynn",0,0,1,0,0,
 royal college of nursing legal department,0,1,0,1,0,0.0
-midwifery council legal department,1,0,0,0,1,100.0
 nursing,1,0,0,0,1,100.0
+midwifery council legal department,1,0,0,0,1,100.0
 taylor hampton solicitors,0,1,0,1,0,0.0
 david price solicitors,0,2,0,1,1,0.0
 richard max,1,0,0,1,0,100.0
@@ -2352,8 +2352,8 @@ griffin law ltd,0,1,0,0,1,0.0
 kesar & co.,0,1,0,1,0,0.0
 "principal legal adviser, gmc legal",1,0,0,0,1,100.0
 victory legal costs solicitors,1,0,0,1,0,100.0
-legal group of enforcement,1,0,0,0,1,100.0
 market oversight division of fca,1,0,0,0,1,100.0
+legal group of enforcement,1,0,0,0,1,100.0
 wansbroughs solicitors,0,1,0,0,1,0.0
 bgr bloomer,1,1,0,2,0,50.0
 city & county of swansea,1,0,0,0,1,100.0
@@ -2378,8 +2378,8 @@ burroughs day llp,1,0,0,0,1,100.0
 worcestershire county council legal services,0,1,0,1,0,0.0
 clarion solicitors limited,1,0,0,1,0,100.0
 messrs lancasters,1,0,0,1,0,100.0
-rice-jones,0,1,0,0,1,0.0
 smiths,0,1,0,0,1,0.0
+rice-jones,0,1,0,0,1,0.0
 "bentleys, stokes & lowless",0,2,0,0,2,0.0
 butcher & barlow llp,0,1,0,0,1,0.0
 messrs hatchers solicitors,0,1,0,0,1,0.0
@@ -2611,8 +2611,8 @@ morgan rose solicitors,0,1,0,0,1,0.0
 harcus sinclair,2,0,0,2,0,100.0
 family law practice,0,1,0,0,1,0.0
 sharpe pritchard llp as agents for king's lynn & west norfolk council,1,0,0,0,1,100.0
-oadby,0,1,0,1,0,0.0
 wigston borough council,0,1,0,1,0,0.0
+oadby,0,1,0,1,0,0.0
 campbell & co solicitors,0,1,0,1,0,0.0
 west london law,1,0,0,0,1,100.0
 "democratic services, birmingham city council",1,0,0,1,0,100.0
@@ -2687,12 +2687,12 @@ haider kennedy,0,2,0,2,0,0.0
 tv edwards solicitors,1,0,0,0,1,100.0
 wards solicitors,0,1,0,1,0,0.0
 nhs shared services partnership legal & risk services,0,1,0,1,0,0.0
-jackson,0,1,0,1,0,0.0
 canter solicitors,0,1,0,1,0,0.0
+jackson,0,1,0,1,0,0.0
 paul crowley & co solicitors,1,0,0,0,1,100.0
 cleveland police headquarters,0,1,0,0,1,0.0
-salford legal services,1,0,0,0,1,100.0
 manchester,1,0,0,0,1,100.0
+salford legal services,1,0,0,0,1,100.0
 liberty solicitors,0,1,0,1,0,0.0
 ashfield & mansfield shared legal service,0,1,0,0,1,0.0
 marrons shakespeares,0,1,1,1,0,0.0
@@ -2700,8 +2700,8 @@ taylor & emmett llp,1,0,0,0,1,100.0
 f barnes,1,0,0,1,0,100.0
 devon & cornwall constabulary,0,1,0,1,0,0.0
 hewlett swanson llp,1,0,0,0,1,100.0
-labour exploitation unit at islington law centre,1,0,0,1,0,100.0
 anti trafficking,1,0,0,1,0,100.0
+labour exploitation unit at islington law centre,1,0,0,1,0,100.0
 ms-legal solicitors,1,0,0,1,0,100.0
 4a law,0,0,2,0,0,
 james murray solicitors,0,1,0,1,0,0.0
@@ -2715,8 +2715,8 @@ mayer brown llp,0,1,0,0,1,0.0
 thomson webb & corfield,1,0,0,0,1,100.0
 colemans-cutts,0,0,1,0,0,
 kent legal services,0,1,0,1,0,0.0
-london borough of barking,0,0,2,0,0,
 dagenham legal practice,0,0,2,0,0,
+london borough of barking,0,0,2,0,0,
 messrs lawsons solicitors,0,1,0,1,0,0.0
 wakefield mdc legal department,1,0,0,0,1,100.0
 s j & j monk,0,1,0,0,1,0.0
@@ -2726,14 +2726,14 @@ sills & betteridge llp,1,0,0,1,0,100.0
 dtm legal,0,2,0,0,2,0.0
 atleu at islington law centre,0,1,0,1,0,0.0
 lyons davidson solicitors,1,1,0,1,1,50.0
-sutton law centre,0,1,0,1,0,0.0
 croydon,0,1,0,1,0,0.0
+sutton law centre,0,1,0,1,0,0.0
 platt halpern solicitors,0,1,0,1,0,0.0
 by solicitors to her majesty's commissioners for revenue,1,0,0,0,1,100.0
 leathes prior,1,0,0,1,0,100.0
 turbervilles solicitors,0,1,0,1,0,0.0
-burney legal solicitors,0,1,0,1,0,0.0
 malik law chambers solicitor,0,1,0,1,0,0.0
+burney legal solicitors,0,1,0,1,0,0.0
 charles russell speechly llp,1,2,0,1,2,33.33333333333333
 brian harris & co solicitors,0,1,0,0,1,0.0
 lyons davidson,1,0,0,0,1,100.0
@@ -2927,17 +2927,17 @@ south kesteven district council legal services,1,0,0,0,1,100.0
 lincolnshire county council legal services,0,0,1,0,0,
 trinity law solicitors,0,1,0,1,0,0.0
 b legal solicitors,1,0,0,0,1,100.0
-cummins llp,0,1,0,1,0,0.0
 wainwright,0,1,0,1,0,0.0
+cummins llp,0,1,0,1,0,0.0
 london borough of lambeth legal services,1,0,0,0,1,100.0
 wiltshire council legal services,0,1,0,1,0,0.0
 luqmani thompson,0,1,0,1,0,0.0
-singapore airlines cargo pte ltd,0,1,0,0,1,0.0
-"société air france, shearman & sterling (london) llp for cargolux airlines international sa, squire paton boggs (uk) llp for cathay pacific airways limited, shepherd",0,1,0,0,1,0.0
-"wedderburn llp for scandinavian airline system denmark-norway-sweden, sas ab",0,1,0,0,1,0.0
-sas cargo group a/s,0,1,0,0,1,0.0
 latham & watkins llp for singapore airlines limited,0,1,0,0,1,0.0
 "hogan lovells international llp for air canada, linklaters llp for air france-klm, klm nv, martinair holland nv",0,1,0,0,1,0.0
+"wedderburn llp for scandinavian airline system denmark-norway-sweden, sas ab",0,1,0,0,1,0.0
+sas cargo group a/s,0,1,0,0,1,0.0
+singapore airlines cargo pte ltd,0,1,0,0,1,0.0
+"société air france, shearman & sterling (london) llp for cargolux airlines international sa, squire paton boggs (uk) llp for cathay pacific airways limited, shepherd",0,1,0,0,1,0.0
 zaiwalla & co. llp,1,0,0,1,0,100.0
 "dodd lewis, blackheath",1,0,0,0,1,100.0
 newhall solicitors llp,1,0,0,1,0,100.0
@@ -3016,8 +3016,8 @@ carson mcdowell llp,0,1,0,1,0,0.0
 solicitors office,1,0,0,0,1,100.0
 summers nigh law llp,1,0,0,1,0,100.0
 shakespeares solicitors,0,1,0,0,1,0.0
-blandy,0,1,0,1,0,0.0
 blandy llp,0,1,0,1,0,0.0
+blandy,0,1,0,1,0,0.0
 maidenhead shared legal services,1,0,0,0,1,100.0
 anthony gold,1,0,0,0,1,100.0
 gavin edmondson solicitors limited,1,0,0,1,0,100.0

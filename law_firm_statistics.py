@@ -1,4 +1,5 @@
 import pickle
+import json
 import pandas as pd
 import ast
 import re
@@ -119,6 +120,8 @@ stats_df = pd.DataFrame.from_dict(results, orient='index').reset_index()
 stats_df.columns = ['Law_Firm', 'Wins', 'Losses', 'Neutral_Appearances', 'Appellant_Appearances', 'Respondent_Appearances']
 stats_df['Win_Rate'] = (stats_df['Wins'] / (stats_df['Wins'] + stats_df['Losses'])) * 100
 
+print(stats_df)
+
 # Save statistics as CSV
 stats_df.to_csv('data/law_firm_statistics/law_firm_statistics.csv', index=False)
 
@@ -146,14 +149,12 @@ print((df.loc[df['law_firms'] == 'UNCLEAR']))
 # Apply filter
 print(df[df['law_firms'].apply(lambda x: firm_match(x))][['link', 'outcome', 'year']])
 
-print(stats_df)
-
 # group the law firms into matches
 visited = set()
 groups = []
 
 # Similarity threshold (0.8 is moderate; adjust as needed)
-similarity_cutoff = 0.9
+similarity_cutoff = 0.85
 
 # Step 1: Grouping similar names
 for firm in stats_df['Law_Firm']:
@@ -193,9 +194,22 @@ while merged:
 sorted_groups = [sorted(group) for group in groups]
 sorted_groups.sort()
 
-# Display groups nicely
-for idx, group in enumerate(sorted_groups, 1):
-    print(f"Group {idx}:")
-    for firm in group:
-        print(f"  - {firm}")
-    print()
+print(sorted_groups)
+
+# with open("law_firms_grouped_raw.json", "w") as f:
+#     json.dump(sorted_groups, f, indent=4)
+
+# # Display groups nicely
+# for idx, group in enumerate(sorted_groups, 1):
+#     print(f"Group {idx}:")
+#     for firm in group:
+#         print(f"  - {firm}")
+#     print()
+
+with open("law_firms_manual_grouped.json", "r") as f:
+    manual_data = json.load(f)
+
+sorted(manual_data[0])
+
+with open("law_firms_grouped_manual_sorted.json", "w") as f:
+    json.dump(manual_data, f, indent=4)
