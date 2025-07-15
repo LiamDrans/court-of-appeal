@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Data Viewer</title>
+  <title>Searchable DataFrame</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css">
 </head>
 <body>
-  <h1>Hello from GitHub Pages!</h1>
-  <p>This is your first webpage.</p>
+  <h1>Searchable Table</h1>
+  <table id="myTable" class="display"></table>
+
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+  <script>
+    Papa.parse('law_firm_statistics_for_page.csv', {
+      download: true,
+      header: true,
+      complete: function(results) {
+        const data = results.data;
+        const columns = Object.keys(data[0]).map(col => ({ title: col, data: col }));
+
+        $('#myTable').DataTable({
+          data: data,
+          columns: columns
+        });
+      }
+    });
+  </script>
 </body>
 </html>
