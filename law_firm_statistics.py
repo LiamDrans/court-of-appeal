@@ -149,6 +149,9 @@ print((df.loc[df['law_firms'] == 'UNCLEAR']))
 # Apply filter
 print(df[df['law_firms'].apply(lambda x: firm_match(x))][['link', 'outcome', 'year']])
 
+
+"""BELOW IS FOR THE LAW FIRM GROUPING MECHANISM"""
+
 # group the law firms into matches
 visited = set()
 groups = []
@@ -196,6 +199,7 @@ sorted_groups.sort()
 
 print(sorted_groups)
 
+
 # with open("law_firms_grouped_raw.json", "w") as f:
 #     json.dump(sorted_groups, f, indent=4)
 
@@ -206,10 +210,10 @@ print(sorted_groups)
 #         print(f"  - {firm}")
 #     print()
 
-with open("law_firms_manual_grouped.json", "r") as f:
-    manual_data = json.load(f)
+# with open("law_firms_manual_grouped.json", "r") as f:
+#     manual_data = json.load(f)
 
-sorted(manual_data[0])
+# sorted(manual_data[0])
 
-with open("law_firms_grouped_manual_sorted.json", "w") as f:
-    json.dump(manual_data, f, indent=4)
+# with open("law_firms_grouped_manual_sorted.json", "w") as f:
+#     json.dump(manual_data, f, indent=4)
