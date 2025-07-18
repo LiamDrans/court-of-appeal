@@ -69,7 +69,12 @@
         },
         ...Object.keys(data[0])
           .filter(col => col !== '_control')
-          .map(col => ({ title: col, data: col }))
+          .map(col => {
+              if (col === 'Cases') {
+                return { title: col, data: col, visible: false }; // hide from main table
+              }
+              return { title: col, data: col };
+            })
       ];
 
       const table = $('#myTable').DataTable({
