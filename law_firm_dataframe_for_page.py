@@ -44,6 +44,10 @@ df_grouped = df_grouped[
     ]
 ]
 
+df_grouped['Law_Firm(from_text)'] = df_grouped['Law_Firm(from_text)'].apply(
+    lambda x: ', '.join(map(str, x)) if isinstance(x, (list, tuple)) else str(x)
+)
+
 print(df_grouped)
 
 print(df_grouped.loc[df_grouped['Law_Firm'] == 'allen overy shearman sterling llp'])
