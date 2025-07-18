@@ -3,6 +3,19 @@
 <head>
   <title>Searchable DataFrame</title>
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css">
+
+  <style>
+  td.details-control {
+    cursor: pointer;
+  }
+  tr.shown td.details-control:before {
+    content: "▼ ";
+  }
+  tr td.details-control:before {
+    content: "▶ ";
+    padding-right: 5px;
+  }
+  </style>
 </head>
 <body>
   <h1>Searchable Table</h1>
@@ -13,19 +26,74 @@
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
   <script>
-    Papa.parse('law_firm_statistics_for_page.csv', {
-      download: true,
-      header: true,
-      complete: function(results) {
-        const data = results.data;
-        const columns = Object.keys(data[0]).map(col => ({ title: col, data: col }));
+  // Formatter function for row expansion
+  function format(rowData) {
+    let cases = {};
+    try {
+      cases = JSON.parse(rowData.Cases);
+    } catch (e) {
+      return '<em>No case data available</em>';
+    }
 
-        $('#myTable').DataTable({
-          data: data,
-          columns: columns
-        });
-      }
-    });
-  </script>
+    if (!Object.keys(cases).length) {
+      return '<em>No cases recorded</em>';
+    }
+
+    let html = '<div><strong>Cases by Year:</strong><ul>';
+    for (const [year, links] of Object.entries(cases)) {
+      html += `<li><strong>${year}</strong><ul>`;
+      links.forEach(link => {
+        html += `<li><a href="${link}" target="_blank">${link}</a></li>`;
+      });
+      html += '</ul></li>';
+    }
+    html += '</ul></div>';
+    return html;
+  }
+
+  Papa.parse('law_firm_statistics_for_page.csv', {
+    download: true,
+    header: true,
+    complete: function(results) {
+      const data = results.data;
+
+      // Inject empty column for expand control
+      data.forEach(row => row._control = '');
+
+      const columns = [
+        {
+          className: 'details-control',
+          orderable: false,
+          data: '_control',
+          defaultContent: ''
+        },
+        ...Object.keys(data[0])
+          .filter(col => col !== '_control')
+          .map(col => ({ title: col, data: col }))
+      ];
+
+      const table = $('#myTable').DataTable({
+        data: data,
+        columns: columns,
+        order: [[1, 'asc']]
+      });
+
+      // Add click event for toggling rows
+      $('#myTable tbody').on('click', 'td.details-control', function () {
+        const tr = $(this).closest('tr');
+        const row = table.row(tr);
+
+        if (row.child.isShown()) {
+          row.child.hide();
+          tr.removeClass('shown');
+        } else {
+          row.child(format(row.data())).show();
+          tr.addClass('shown');
+        }
+      });
+    }
+  });
+</script>
+
 </body>
 </html>

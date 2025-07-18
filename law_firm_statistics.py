@@ -19,6 +19,8 @@ for year in years:
 
 df = df.dropna(subset=['citation'])
 
+print(df)
+
 def string_to_tuple(val):
     if pd.isna(val):
         return []
@@ -71,6 +73,8 @@ neutral_keywords = ['interested', 'neutral', 'intervener']
 
 results = defaultdict(lambda: {'Wins': 0, 'Losses': 0, 'Neutral_Appearances':0, 'Appellant_Appearances':0, 'Respondent_Appearances':0})
 
+case_links = defaultdict(lambda: defaultdict(set)) 
+
 for _, row in df.iterrows():
     outcome = row['outcome']
     firm_roles = row['law_firms']
@@ -87,6 +91,9 @@ for _, row in df.iterrows():
             # Determine win/loss by role + outcome
             role = role.lower()
             all_roles = [r.lower() for _, r in firm_roles]
+            year = row['year']
+            link = row['link']
+            case_links[firm][year].add(link)
 
             neutral_keywords = ['interested', 'intervener']
 
@@ -115,12 +122,16 @@ for _, row in df.iterrows():
             else:
                 results[firm]['Losses'] += 1
 
-# Convert to a DataFrame
 stats_df = pd.DataFrame.from_dict(results, orient='index').reset_index()
 stats_df.columns = ['Law_Firm', 'Wins', 'Losses', 'Neutral_Appearances', 'Appellant_Appearances', 'Respondent_Appearances']
-stats_df['Win_Rate'] = (stats_df['Wins'] / (stats_df['Wins'] + stats_df['Losses'])) * 100
+
+# Attach Cases as a new column
+stats_df['Cases'] = stats_df['Law_Firm'].map(
+    lambda f: {year: list(links) for year, links in sorted(case_links.get(f, {}).items())}
+)
 
 print(stats_df)
+stats_df['Win_Rate'] = (stats_df['Wins'] / (stats_df['Wins'] + stats_df['Losses'])) * 100
 
 # Save statistics as CSV
 stats_df.to_csv('data/law_firm_statistics/law_firm_statistics.csv', index=False)
@@ -147,7 +158,7 @@ def firm_match(firm_data, target="government"):
 print(len(df.loc[df['outcome'] == 'UNCLEAR']))
 print((df.loc[df['law_firms'] == 'UNCLEAR']))
 # Apply filter
-print(df[df['law_firms'].apply(lambda x: firm_match(x))][['link', 'outcome', 'year']])
+# print(df[df['law_firms'].apply(lambda x: firm_match(x))][['link', 'outcome', 'year']])
 
 
 """BELOW IS FOR THE LAW FIRM GROUPING MECHANISM"""
@@ -197,7 +208,7 @@ while merged:
 sorted_groups = [sorted(group) for group in groups]
 sorted_groups.sort()
 
-print(sorted_groups)
+# print(sorted_groups)
 
 
 # with open("law_firms_grouped_raw.json", "w") as f:

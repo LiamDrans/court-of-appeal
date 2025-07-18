@@ -1,37 +1,55 @@
 import pandas as pd
 import json
+import ast
+from collections import defaultdict
 
-df = pd.read_csv(f'data/law_firm_statistics/law_firm_statistics.csv')
-print(df)
+# === 1. Load and clean base data ===
+df = pd.read_csv('data/law_firm_statistics/law_firm_statistics.csv')
+df['Cases'] = df['Cases'].apply(lambda x: ast.literal_eval(x) if pd.notna(x) else {})
 
 with open("data/law_firm_statistics/law_firms_grouped_manual_sorted.json", "r") as f:
     grouped_law_firms = json.load(f)
 
+# === 2. Apply canonical names ===
 mapping = {}
 for group in grouped_law_firms:
-    top_level = group[0]
+    canonical = group[0]
     for variant in group:
-        mapping[variant] = top_level
+        mapping[variant] = canonical
 
 df.rename(columns={'Law_Firm': 'Law_Firm(from_text)'}, inplace=True)
 df['Law_Firm'] = df['Law_Firm(from_text)'].map(mapping).fillna(df['Law_Firm(from_text)'])
-cols = df.columns.tolist()
-cols.insert(0, cols.pop(cols.index('Law_Firm')))
-df = df[cols]
 
-df.drop('Win_Rate', axis=1, inplace=True)
+# === 3. Aggregate stats ===
+stats_cols = ['Wins', 'Losses', 'Neutral_Appearances', 'Appellant_Appearances', 'Respondent_Appearances']
+df_stats = df.groupby('Law_Firm', as_index=False)[stats_cols].sum()
 
+# === 4. Aggregate law firm name variants ===
+df_variants = df.groupby('Law_Firm')['Law_Firm(from_text)'].agg(lambda x: sorted(set(x))).reset_index()
 
-df_grouped = df.groupby('Law_Firm', as_index=False)[
-    ['Wins', 'Losses', 'Neutral_Appearances', 'Appellant_Appearances', 'Respondent_Appearances']
-].sum()
+# === 5. Merge all Cases properly ===
+def merge_case_dicts(dict_list):
+    merged = defaultdict(set)
+    for d in dict_list:
+        for year, links in d.items():
+            merged[year].update(links)
+    return {year: sorted(list(links)) for year, links in merged.items()}
 
-variants_map = df.groupby('Law_Firm')['Law_Firm(from_text)'].unique().reset_index()
-variants_map.rename(columns={'Law_Firm(from_text)': 'Law_Firm(from_text)'}, inplace=True)
-df_grouped = pd.merge(df_grouped, variants_map, on='Law_Firm', how='left')
-df_grouped['Win_Rate'] = round((df_grouped['Wins'] / (df_grouped['Wins'] + df_grouped['Losses'])) * 100, 2)
+df_cases = df.groupby('Law_Firm')['Cases'].agg(merge_case_dicts).reset_index()
 
-df_grouped = df_grouped[
+# === 6. Merge all parts ===
+df_final = (
+    df_stats
+    .merge(df_variants, on='Law_Firm', how='left')
+    .merge(df_cases, on='Law_Firm', how='left')
+)
+
+# === 7. Final formatting ===
+df_final['Win_Rate'] = round((df_final['Wins'] / (df_final['Wins'] + df_final['Losses'])) * 100, 2)
+df_final['Law_Firm(from_text)'] = df_final['Law_Firm(from_text)'].apply(lambda x: ', '.join(x))
+df_final['Cases'] = df_final['Cases'].apply(json.dumps)
+
+df_final = df_final[
     [
         'Law_Firm',
         'Wins',
@@ -40,16 +58,12 @@ df_grouped = df_grouped[
         'Neutral_Appearances',
         'Appellant_Appearances',
         'Respondent_Appearances',
-        'Law_Firm(from_text)'
+        'Law_Firm(from_text)',
+        'Cases'
     ]
 ]
 
-df_grouped['Law_Firm(from_text)'] = df_grouped['Law_Firm(from_text)'].apply(
-    lambda x: ', '.join(map(str, x)) if isinstance(x, (list, tuple)) else str(x)
-)
+# === 8. Export ===
+df_final.to_csv('law_firm_statistics_for_page.csv', index=False)
 
-print(df_grouped)
-
-print(df_grouped.loc[df_grouped['Law_Firm'] == 'allen overy shearman sterling llp'])
-
-df_grouped.to_csv('law_firm_statistics_for_page.csv', index=False)
+print("✅ Done. Final shape:", df_final.shape)
