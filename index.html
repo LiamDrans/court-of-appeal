@@ -27,7 +27,8 @@
 
   <script>
   // Formatter function for row expansion
-  function format(rowData) {
+  
+    function format(rowData) {
     let cases = {};
     try {
       cases = JSON.parse(rowData.Cases);
@@ -41,18 +42,21 @@
 
     let html = '<div><strong>Cases by Year:</strong><ul>';
 
-    const sortedYears = Object.keys(cases).sort((a, b) => Number(b) - Number(a));
+    // ✅ Sort years in descending order numerically
+    const sortedYears = Object.keys(cases).sort((a, b) => parseInt(b) - parseInt(a));
 
     for (const year of sortedYears) {
       html += `<li><strong>${year}</strong><ul>`;
-      links.forEach(link => {
+      cases[year].forEach(link => {
         html += `<li><a href="${link}" target="_blank">${link}</a></li>`;
       });
       html += '</ul></li>';
     }
+
     html += '</ul></div>';
     return html;
   }
+
 
   Papa.parse('law_firm_statistics_for_page.csv', {
     download: true,
