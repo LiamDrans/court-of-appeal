@@ -7,7 +7,7 @@ from collections import defaultdict
 df = pd.read_csv('data/law_firm_statistics/law_firm_statistics.csv')
 df['Cases'] = df['Cases'].apply(lambda x: ast.literal_eval(x) if pd.notna(x) else {})
 
-with open("data/law_firm_statistics/law_firms_grouped_manual_sorted.json", "r") as f:
+with open("data/law_firm_statistics/law_firms_grouped_manual_sorted_v2.json", "r") as f:
     grouped_law_firms = json.load(f)
 
 # === 2. Apply canonical names ===

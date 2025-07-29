@@ -32,42 +32,204 @@ def string_to_tuple(val):
 
 df['law_firms'] = df['law_firms'].apply(string_to_tuple)
 
+firms_to_protect_df = df.loc[
+    df['law_firms'].apply(
+        lambda firm_list: any(' and ' in tup[0] for tup in firm_list)
+    )
+]
+
+print(len(firms_to_protect_df))
+
+firms_to_protect_df['parties'] = firms_to_protect_df['parties'].str.replace('\n', ' ', regex=True).str.strip()
+
+firms_to_protect_df.to_csv('data/law_firm_statistics/firms_to_protect.csv', columns=['link','representation','law_firms'], index=False)
+
 protected_firms = {
-    'Slaughter and May',
-    'Winston and Strawn London LLP',
-    'Competition and Markets Authority',
-    'Haynes and Boone, LLP'
+    'general counsel and solicitor',
+    'general solicitor and counsel',
+    'general solicitors and counsel',
+    'general counsel and\r\nsolicitor',
+    'law and advocacy',
+    'and associates',
+    'and co',
+    'and company',
+    'and partners',
+    'and sons',
+    'and law centre',
+    'avon and somerset',
+    'prosecutions and inquests',
+    'legal and democratic',
+    'law and governance'
+    'Wealden and Rother',
+    'disclosure and barring',
+    'comptroller and city',
+    'governance and legal',
+    'legal and governance',
+    'governance and law',
+    'nuneaton and bedworth',
+    'solicitors and advocates',
+    'office and legal service',
+    'legal and democratic services',
+    'corporate and legal services',
+    'slaughter and may',
+    'allen and overy',
+    'winston and strawn',
+    'competition and markets authority',
+    'Enforcement and Market Oversight'
+    'revenue and customs'
+    'equality and human',
+    'kensington and chelsea',
+    'haynes and boone',
+    'slater and gordon',
+    'hackett and dabbs',
+    'miles and partners',
+    'pinder reaux and associates',
+    'morgan, lewis and bockius',
+    'lawrence and associates',
+    'horwich farrelly and keoghs',
+    'kirklees citizens advice and law centre',
+    'shepherd and wedderburn',
+    'britton and time',
+    'child and child',
+    'simmons and simmons',
+    'dentons uk and middle east',
+    'hodge jones and allen',
+    'sullivan and cromwell',
+    'aaron and partners',
+    'crane and walton',
+    'kilgannon and partners',
+    'tedstone, george and tedstone',
+    'richard slade and co',
+    'richard slade and company',
+    'clyde and co',
+    'kirkland and ellis',
+    'watkins and gunn',
+    'manchester and salford',
+    'wilmer cutler pickering hale and dorr',
+    'thomson snell and passmore',
+    'wealden and rother',
+    'hunt and coombs',
+    'folkestone and hythe',
+    'paul martin and co',
+    'luke and bridger',
+    'peters and peters',
+    'faegre drinker biddle and reath',
+    'kleyman and co',
+    'mills and reeve',
+    'southampton and fareham',
+    'hammersmith and fulham',
+    'watch tower bible and tract society',
+    'rich and carr',
+    'kesar and co',
+    'byrne and partners',
+    'johnson and boon',
+    'christchurch and poole',
+    'public and regulatory',
+    'debevoise and plimpton',
+    'staffordshire and west',
+    'harrison drury and co',
+    'shuttari paul and co'
+    'cheshire west and chester council',
+    'shropshire council legal and democratic services',
+    'avon and bristol',
+    'gibson dunn and crutcher',
+    'matthew gold and co.',
+    'environmental and public',
+    'richard buxton environmental and public law',
+    'environmental and planning',
+    'lexlaw solicitors and advocates',
+    'avon and somerset police',
+    'richmond and barnes',
+    'milbank, tweed, hadley and mccloy',
+    'hinckley and bosworth borough council',
+    'kerman and co',
+    'anti-trafficking and labour',
+    'lamb and holmes',
+    'bentleys, stokes and lowless',
+    'ashfield and mansfield',
+    'trowers and hamlins', 
+    'snell and passmore',
+    'imran khan and partners',
+    'city and district',
+    'appeals and review',
+    'green and olive',
+    'bates wells and braithwaite',
+    'mcdermott will and emery',
+    'law and public services',
+    'rbs and natwest',
+    'white and case',
+    'legal and regulatory services',
+    'solicitors and financial advisors',
+    'fox and partners',
+    'stockinger advocates and solicitors',
+    'nursing and midwifery council',
+    'david price solicitors and advocates',
+    'davis simmonds and donaghey',
+    'richard max and co',
+    'tonbridge and malling',
+    'steptoe and johnson',
+    'rice-jones and smiths',
+    'barnes, harrild and dyer',
+    'beale and company',
+    'bower and bailey',
+    'litigation and review team',
+    'oadby and wigston',
+    'birmingham city council legal and democratic services',
+    'birnberg peirce and partners',
+    'leo abse and cohen',
+    'jackson and canter',
+    'croydon and sutton',
+    'legal services and legal team',
+    'regents and co',
+    'harney and wells',
+    'brighton and hove city council',
+    'breeze and wyles',
+    'newark and sherwood',
+    'lambeth and Mayor of London',
+    'richard leighton hill',
+    'wainwright and cummins',
+    'warren\'s law and advocacy',
+    'blandy and blandy',
+    'royal borough of windsor and maidenhead',
+    'butcher and barlow',
+    'st albans city and district council'
 }
 
 protected_firms = {f.lower().replace('the ', '').replace('&', 'and').strip() for f in protected_firms}
 
-def extract_firms(firm_string):
+import re
 
-    # Split by semicolon first
+def extract_firms(firm_string, protected_firms):
     segments = [seg.strip() for seg in firm_string.split(';') if seg.strip()]
-
     result_firms = []
 
     for seg in segments:
-        seg = seg.strip().lower().replace('the ', '')
-        seg = ' '.join(seg.split())
-        # If it's a protected firm, keep it as is
+        original = seg.strip()
+        normalized = original.lower().replace('the ', '')
+        normalized = ' '.join(normalized.split())
 
-        if seg in protected_firms:
-            result_firms.append(seg)
-        else:
-            # Otherwise split on ' and ' but preserve protected substrings
-            split_firms = [s.strip() for s in re.split(r' and ', seg)]
-            for firm in split_firms:
-                # If the fragment matches a protected firm, merge it back
-                matched = [pf for pf in protected_firms if pf in seg]
-                if matched:
-                    result_firms.extend(matched)
-                    break
-                else:
-                    result_firms.append(firm)
+        protected_map = {}
+        temp_seg = normalized
 
-    return list(set(result_firms)) 
+        # 1. Mask protected firm substrings
+        for i, pf in enumerate(sorted(protected_firms, key=len, reverse=True)):
+            norm_pf = pf.lower().replace('the ', '').strip()
+            if norm_pf in temp_seg:
+                placeholder = f"__PROTECTED_{i}__"
+                temp_seg = temp_seg.replace(norm_pf, placeholder)
+                protected_map[placeholder] = pf  # keep original protected string casing
+
+        # 2. Split on ' and '
+        parts = [part.strip() for part in re.split(r'\band\b', temp_seg) if part.strip()]
+
+        # 3. Restore protected substrings
+        for part in parts:
+            for placeholder, original_pf in protected_map.items():
+                part = part.replace(placeholder, original_pf)
+            result_firms.append(part)
+
+    return list(set(result_firms))
+
 
 neutral_keywords = ['interested', 'neutral', 'intervener']
 
@@ -85,7 +247,7 @@ for _, row in df.iterrows():
     for firm_string, role in firm_roles:
 
         # Split firms on " and " to handle joined firm names
-        individual_firms = extract_firms(firm_string)
+        individual_firms = extract_firms(firm_string, protected_firms)
 
         for firm in individual_firms:
             # Determine win/loss by role + outcome
@@ -95,15 +257,14 @@ for _, row in df.iterrows():
             link = row['link']
             case_links[firm][year].add(link)
 
-            neutral_keywords = ['interested', 'intervener']
+            neutral_keywords = ['interested', 'neutral', 'intervener']
 
             # Check if neutral
             if any(neutral_word in role for neutral_word in neutral_keywords):
                 for firm in individual_firms:
                     results[firm]['Neutral_Appearances'] += 1
-                continue  # Skip win/loss logic
+                continue
 
-            
                     # Count appearances by role
             
             if 'appellant' in role or 'applicant' in role or ('claimant' in role and not any('appellant' in r for r in all_roles)):
@@ -159,72 +320,3 @@ print(len(df.loc[df['outcome'] == 'UNCLEAR']))
 print((df.loc[df['law_firms'] == 'UNCLEAR']))
 # Apply filter
 # print(df[df['law_firms'].apply(lambda x: firm_match(x))][['link', 'outcome', 'year']])
-
-
-"""BELOW IS FOR THE LAW FIRM GROUPING MECHANISM"""
-
-# group the law firms into matches
-visited = set()
-groups = []
-
-# Similarity threshold (0.8 is moderate; adjust as needed)
-similarity_cutoff = 0.85
-
-# Step 1: Grouping similar names
-for firm in stats_df['Law_Firm']:
-    if firm not in visited:
-        matches = get_close_matches(firm, stats_df['Law_Firm'], cutoff=similarity_cutoff)
-        visited.update(matches)
-        groups.append(matches)
-
-# Convert all groups to sets before merging
-groups = [set(group) for group in groups]
-
-# Step 2: Merge overlapping groups (Union-Find-like)
-merged = True
-while merged:
-    merged = False
-    new_groups = []
-    while groups:
-        first, *rest = groups
-        first = set(first)
-        changed = True
-        while changed:
-            changed = False
-            rest2 = []
-            for g in rest:
-                if first & g:  # Overlap found
-                    first |= g
-                    changed = True
-                else:
-                    rest2.append(g)
-            rest = rest2
-        new_groups.append(first)
-        groups = rest
-        merged = True if changed else merged
-    groups = new_groups
-
-# Step 3: Sort groups for readability
-sorted_groups = [sorted(group) for group in groups]
-sorted_groups.sort()
-
-# print(sorted_groups)
-
-
-# with open("law_firms_grouped_raw.json", "w") as f:
-#     json.dump(sorted_groups, f, indent=4)
-
-# # Display groups nicely
-# for idx, group in enumerate(sorted_groups, 1):
-#     print(f"Group {idx}:")
-#     for firm in group:
-#         print(f"  - {firm}")
-#     print()
-
-# with open("law_firms_manual_grouped.json", "r") as f:
-#     manual_data = json.load(f)
-
-# sorted(manual_data[0])
-
-# with open("law_firms_grouped_manual_sorted.json", "w") as f:
-#     json.dump(manual_data, f, indent=4)

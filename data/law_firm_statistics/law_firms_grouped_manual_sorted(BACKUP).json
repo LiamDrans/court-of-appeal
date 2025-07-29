@@ -1,7 +1,7 @@
 [
     [
-        "(monro wright & wasbrough llp",
-        "monro wright & wasbrough llp"
+        "monro wright & wasbrough llp",
+        "(monro wright & wasbrough llp"
     ],
     [
         "3c shared services-legal practice"
@@ -14,13 +14,6 @@
     ],
     [
         "a & n care solicitors"
-    ],
-    [
-        "a local authority",
-        "local authority"
-    ],
-    [
-        "a london authority"
     ],
     [
         "a2 solicitors"
@@ -98,7 +91,8 @@
     ],
     [
         "c j jones solicitors llp",
-        "messrs c j jones llp"
+        "messrs c j jones llp",
+        "cj jones solicitors llp"
     ],
     [
         "cale solicitors"
@@ -113,9 +107,9 @@
         "capital solicitors llp"
     ],
     [
-        "capstick solicitors llp",
-        "capsticks solicitors",
         "capsticks solicitors llp",
+        "capsticks solicitors",
+        "capstick solicitors llp",
         "clapsticks solicitors llp"
     ],
     [
@@ -134,20 +128,7 @@
         "chivers solicitors"
     ],
     [
-        "city solicitor",
-        "city solicitors"
-    ],
-    [
-        "cj jones solicitors llp"
-    ],
-    [
         "clintons solicitors"
-    ],
-    [
-        "co solicitors"
-    ],
-    [
-        "co. solicitors"
     ],
     [
         "cohen solicitors"
@@ -648,7 +629,6 @@
         "adie pepperdine solicitors"
     ],
     [
-        "advocacy",
         "advocate",
         "advocates"
     ],
@@ -709,6 +689,7 @@
     ],
     [
         "allen overy shearman sterling llp",
+        "Messrs Allen and Overy LLP",
         "allen & overy",
         "allen & overy llp",
         "allen overy llp",
@@ -1097,7 +1078,8 @@
         "jung & co solicitors"
     ],
     [
-        "kesar & co solicitors"
+        "kesar & co solicitors",
+        "kesar & co. solicitors"
     ],
     [
         "lone & co solicitors"
@@ -2377,6 +2359,7 @@
         "david foster & co. solicitors"
     ],
     [
+        "david price solicitors and advocates",
         "david price solicitors"
     ],
     [
@@ -3346,7 +3329,7 @@
         "grosvenor law",
         "grosvenor law ltd"
     ],
-    [
+    [   "gt stewart solicitors and advocates",
         "gt stewart",
         "g t stewart solicitors",
         "gt stewart solicitors"
@@ -4517,7 +4500,8 @@
         "lex-avoca solicitors"
     ],
     [
-        "lexlaw solicitors & advocates"
+        "lexlaw solicitors & advocates",
+        "lexlaw solicitors and advocates"
     ],
     [
         "lgss law"
@@ -4576,19 +4560,15 @@
     [
         "llys cennen solicitors"
     ],
-    [
+    [   "local authority",
         "local authority legal",
         "local authority legal services",
-        "local authority solicitor"
-    ],
-    [
-        "local authority legal services for wealdon"
-    ],
-    [
-        "local authority's children's trust legal department"
-    ],
-    [
-        "local government association"
+        "local authority solicitor",
+        "a local authority",
+        "local authority legal services for wealdon",
+        "local government association",
+        "local authority's children's trust legal department",
+        "a london authority"
     ],
     [
         "locke lord llp"
@@ -5479,7 +5459,7 @@
         "paul huffer, head of legal services, office for students"
     ],
     [
-        "paul martin"
+        "paul martin and co solicitors"
     ],
     [
         "paul robinson solicitors"
@@ -5826,7 +5806,7 @@
         "reflective practice"
     ],
     [
-        "regents"
+        "regents and co solicitors"
     ],
     [
         "regulatory law team, transport for london"
@@ -6322,7 +6302,8 @@
     ],
     [
         "slaughter & may",
-        "slaughter and may"
+        "slaughter and may",
+        "slaughter and may solicitors"
     ],
     [
         "slee blackwell llp",
@@ -7014,7 +6995,7 @@
         "warnapala & company"
     ],
     [
-        "warren's law"
+        "warren's law and advocacy"
     ],
     [
         "warwickshire county council"
