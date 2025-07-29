@@ -39,16 +39,23 @@ def merge_case_dicts(dict_list):
     for d in dict_list:
         for year, cases in d.items():
             for case in cases:
-                key = (case['url'], case.get('role'), case.get('outcome'))
+                # 🔍 If case is a string (accidentally), parse it
+                if isinstance(case, str):
+                    try:
+                        case = json.loads(case)
+                    except Exception:
+                        continue  # skip broken cases
+
+                key = (case.get('url'), case.get('role'), case.get('outcome'))
                 if key not in seen:
                     merged[year].append(case)
                     seen.add(key)
 
-    # Sort each year's cases by URL or outcome (optional)
     for year in merged:
-        merged[year] = sorted(merged[year], key=lambda c: c['url'])
+        merged[year] = sorted(merged[year], key=lambda c: c.get('url', ''))
 
     return dict(merged)
+
 
 df_cases = df.groupby('Law_Firm')['Cases'].agg(merge_case_dicts).reset_index()
 
