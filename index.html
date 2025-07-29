@@ -5,6 +5,24 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css">
 
   <style>
+
+  .case-entry {
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px dotted #ccc;
+  }
+
+  .case-entry a {
+    display: block;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+  }
+
+  .case-entry small {
+    display: block;
+    margin-top: 0.2em;
+  }
+
   td.details-control {
     cursor: pointer;
   }
@@ -125,16 +143,16 @@
       }
 
   html += `
-    <li>
-      ${resultPrefix}<br>
-      <a href="${url}" target="_blank">${url}</a><br>
-      <small>
-        <span class="role">${role}</span> — 
-        <span class="outcome ${outcomeClass}">${outcome}</span> — 
-        <span class="result ${resultClass}">${result}</span>
-      </small>
-    </li>
-  `;
+      <li class="case-entry">
+        <div>${resultPrefix}</div>
+        <a href="${url}" target="_blank">${url}</a>
+        <small>
+          <span class="role">${role}</span> — 
+          <span class="outcome ${outcomeClass}">${outcome}</span> — 
+          <span class="result ${resultClass}">${result}</span>
+        </small>
+      </li>
+    `;
 }
 
       html += '</ul></li>';
