@@ -76,14 +76,15 @@
 
       for (const caseItem of caseList) {
         const url = caseItem.url || "#";
-        const role = (caseItem.role || "Unknown").toUpperCase();
-        const outcome = (caseItem.outcome || "Unknown").toUpperCase();
-        const outcomeClass = caseItem.outcome?.toLowerCase() || "unknown";
+        const role = (caseItem.role || "unknown").toUpperCase();
+        const outcomeRaw = caseItem.outcome || "unknown";
+        const outcome = outcomeRaw.toUpperCase();
+        const outcomeClass = outcomeRaw.toLowerCase();
 
         html += `
           <li>
-            <a href="${url}" target="_blank">${url}</a>
-            <br><small>
+            <a href="${url}" target="_blank">${url}</a><br>
+            <small>
               <span class="role">${role}</span> — 
               <span class="outcome ${outcomeClass}">${outcome}</span>
             </small>
@@ -97,6 +98,7 @@
     html += '</ul></div>';
     return html;
   }
+
 
   Papa.parse('law_firm_statistics_for_page.csv', {
     download: true,
