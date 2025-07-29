@@ -87,6 +87,6 @@ df_final = df_final[
 ]
 
 # === 8. Export ===
-df_final.to_csv('law_firm_statistics_for_page.csv', index=False)
+df_final.to_csv('data/law_firm_statistics/law_firm_statistics_for_page.csv', index=False)
 
 print("✅ Done. Final shape:", df_final.shape)

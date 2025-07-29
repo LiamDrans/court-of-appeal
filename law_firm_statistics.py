@@ -289,39 +289,13 @@ for _, row in df.iterrows():
 
 stats_df = pd.DataFrame.from_dict(results, orient='index').reset_index()
 stats_df.columns = ['Law_Firm', 'Wins', 'Losses', 'Neutral_Appearances', 'Appellant_Appearances', 'Respondent_Appearances']
-print(stats_df)
 
 # Attach Cases as a new column
 stats_df['Cases'] = stats_df['Law_Firm'].map(
     lambda f: {year: list(links) for year, links in sorted(case_links.get(f, {}).items())}
 )
 
-print(stats_df)
 stats_df['Win_Rate'] = (stats_df['Wins'] / (stats_df['Wins'] + stats_df['Losses'])) * 100
 
 # Save statistics as CSV
 stats_df.to_csv('data/law_firm_statistics/law_firm_statistics.csv', index=False)
-
-# firms = ["Government"]
-# pattern = '|'.join(firms)
-# stats_df = stats_df[stats_df['Law_Firm'].str.contains(pattern, case=False, na=False)]
-# print(stats_df)
-
-def firm_match(firm_data, target="government"):
-    target = target.lower()
-    if not isinstance(firm_data, list):
-        return False
-    for entry in firm_data:
-        if isinstance(entry, tuple):
-            name = entry[0]
-        else:
-            name = str(entry)
-        if target in name.lower():
-            return True
-    return False
-
-# Firm match applies to the original dataframe - i.e. returning all case links for that law firm
-print(len(df.loc[df['outcome'] == 'UNCLEAR']))
-print((df.loc[df['law_firms'] == 'UNCLEAR']))
-# Apply filter
-# print(df[df['law_firms'].apply(lambda x: firm_match(x))][['link', 'outcome', 'year']])
