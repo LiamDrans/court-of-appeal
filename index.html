@@ -27,35 +27,42 @@
 
   <script>
   // Formatter function for row expansion
-  
-    function format(rowData) {
-    let cases = {};
-    try {
-      cases = JSON.parse(rowData.Cases);
-    } catch (e) {
-      return '<em>No case data available</em>';
-    }
 
-    if (!Object.keys(cases).length) {
-      return '<em>No cases recorded</em>';
-    }
-
-    let html = '<div><strong>Cases by Year:</strong><ul>';
-
-    // ✅ Sort years in descending order numerically
-    const sortedYears = Object.keys(cases).sort((a, b) => parseInt(b) - parseInt(a));
-
-    for (const year of sortedYears) {
-      html += `<li><strong>${year}</strong><ul>`;
-      cases[year].forEach(link => {
-        html += `<li><a href="${link}" target="_blank">${link}</a></li>`;
-      });
-      html += '</ul></li>';
-    }
-
-    html += '</ul></div>';
-    return html;
+  function format(rowData) {
+  let cases;
+  try {
+    cases = JSON.parse(rowData.Cases);
+  } catch (e) {
+    return '<em>No case data available</em>';
   }
+
+  if (!cases || typeof cases !== 'object' || Object.keys(cases).length === 0) {
+    return '<em>No cases recorded</em>';
+  }
+
+  let html = '<div><strong>Cases by Year:</strong><ul>';
+
+  // Sort years in descending numeric order
+  const sortedYears = Object.keys(cases)
+    .map(y => parseInt(y))
+    .filter(y => !isNaN(y)) // avoid bad values
+    .sort((a, b) => b - a)
+    .map(y => y.toString());
+
+  for (const year of sortedYears) {
+    const links = cases[year];
+    if (!Array.isArray(links)) continue; // skip if not an array
+    html += `<li><strong>${year}</strong><ul>`;
+    for (const link of links) {
+      html += `<li><a href="${link}" target="_blank">${link}</a></li>`;
+    }
+    html += '</ul></li>';
+  }
+
+  html += '</ul></div>';
+  return html;
+}
+
 
 
   Papa.parse('law_firm_statistics_for_page.csv', {
