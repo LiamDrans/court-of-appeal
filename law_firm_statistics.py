@@ -250,32 +250,42 @@ for _, row in df.iterrows():
         link = row['link']
 
         for firm in individual_firms:
-            # ✅ Log per-case data
+            # Determine result first
+            if any(n in role_lower for n in ['interested', 'neutral', 'intervener']):
+                result_label = "Neutral"
+                results[firm]['Neutral_Appearances'] += 1
+            else:
+                is_appellant = (
+                    'appellant' in role_lower or
+                    'applicant' in role_lower or
+                    ('claimant' in role_lower and not any('appellant' in r or 'applicant' in r for r in all_roles))
+                )
+
+                is_respondent = 'respondent' in role_lower or 'defendant' in role_lower
+
+                is_winner = (
+                    (is_appellant and outcome == 'GRANTED') or
+                    (is_respondent and outcome == 'DISMISSED')
+                )
+
+                if is_appellant:
+                    results[firm]['Appellant_Appearances'] += 1
+                elif is_respondent:
+                    results[firm]['Respondent_Appearances'] += 1
+
+                result_label = "Win" if is_winner else "Loss"
+                if is_winner:
+                    results[firm]['Wins'] += 1
+                else:
+                    results[firm]['Losses'] += 1
+
+            # ✅ Log per-case data with result
             case_links[firm][year].append({
                 "url": link,
                 "role": role_lower,
-                "outcome": outcome
+                "outcome": outcome.lower(),
+                "result": result_label
             })
-
-            if any(n in role_lower for n in ['interested', 'neutral', 'intervener']):
-                results[firm]['Neutral_Appearances'] += 1
-                continue
-
-            if 'appellant' in role_lower or 'applicant' in role_lower or ('claimant' in role_lower and not any('appellant' in r for r in all_roles)):
-                results[firm]['Appellant_Appearances'] += 1
-            elif 'respondent' in role_lower or 'defendant' in role_lower:
-                results[firm]['Respondent_Appearances'] += 1
-
-            is_winner = (
-                (('appellant' in role_lower or 'applicant' in role_lower or ('claimant' in role_lower and not any('appellant' in r or 'applicant' in r for r in all_roles))) and outcome == 'GRANTED')
-                or
-                ('respondent' in role_lower and outcome == 'DISMISSED')
-            )
-
-            if is_winner:
-                results[firm]['Wins'] += 1
-            else:
-                results[firm]['Losses'] += 1
 
 stats_df = pd.DataFrame.from_dict(results, orient='index').reset_index()
 stats_df.columns = ['Law_Firm', 'Wins', 'Losses', 'Neutral_Appearances', 'Appellant_Appearances', 'Respondent_Appearances']

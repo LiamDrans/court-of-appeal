@@ -46,7 +46,8 @@ def merge_case_dicts(dict_list):
                     except Exception:
                         continue  # skip broken cases
 
-                key = (case.get('url'), case.get('role'), case.get('outcome'))
+                key = (case.get('url'), case.get('role'), case.get('outcome'), case.get('result'))
+
                 if key not in seen:
                     merged[year].append(case)
                     seen.add(key)

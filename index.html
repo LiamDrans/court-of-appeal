@@ -35,6 +35,26 @@
     color: #888;
     font-style: italic;
   }
+  
+  .result.win {
+    color: green;
+    font-weight: bold;
+  }
+
+  .result.loss {
+    color: red;
+    font-weight: bold;
+  }
+
+  .result.neutral {
+    color: gray;
+    font-weight: bold;
+  }
+
+  .result.unknown {
+    color: #aaa;
+    font-style: italic;
+  }
   </style>
 </head>
 <body>
@@ -74,23 +94,44 @@
 
       html += `<li><strong>${year}</strong><ul>`;
 
-      for (const caseItem of caseList) {
-        const url = caseItem.url || "#";
-        const role = (caseItem.role || "unknown").toUpperCase();
-        const outcomeRaw = caseItem.outcome || "unknown";
-        const outcome = outcomeRaw.toUpperCase();
-        const outcomeClass = outcomeRaw.toLowerCase();
-
-        html += `
-          <li>
-            <a href="${url}" target="_blank">${url}</a><br>
-            <small>
-              <span class="role">${role}</span> — 
-              <span class="outcome ${outcomeClass}">${outcome}</span>
-            </small>
-          </li>
-        `;
+    for (let caseItem of caseList) {
+      // Fix: parse inner string objects if needed
+      if (typeof caseItem === 'string') {
+        try {
+          caseItem = JSON.parse(caseItem);
+        } catch {
+          continue;
+        }
       }
+
+      const url = caseItem.url || "#";
+      const role = (caseItem.role || "unknown").toUpperCase();
+      const outcomeRaw = caseItem.outcome || "unknown";
+      const outcome = outcomeRaw.toUpperCase();
+      const outcomeClass = outcomeRaw.toLowerCase();
+
+      const result = (caseItem.result || "unknown").toUpperCase();
+      const resultClass = result.toLowerCase();
+
+      // ✅ Define emoji + label based on result
+      let resultPrefix = "";
+      if (result === "WIN") resultPrefix = "✅ <strong>WIN</strong>";
+      else if (result === "LOSS") resultPrefix = "❌ <strong>LOSS</strong>";
+      else if (result === "NEUTRAL") resultPrefix = "⚖️ <strong>NEUTRAL</strong>";
+      else resultPrefix = "❓ <strong>UNKNOWN</strong>";
+
+  html += `
+    <li>
+      ${resultPrefix}<br>
+      <a href="${url}" target="_blank">${url}</a><br>
+      <small>
+        <span class="role">${role}</span> — 
+        <span class="outcome ${outcomeClass}">${outcome}</span> — 
+        <span class="result ${resultClass}">${result}</span>
+      </small>
+    </li>
+  `;
+}
 
       html += '</ul></li>';
     }
