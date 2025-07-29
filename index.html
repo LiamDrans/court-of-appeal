@@ -110,15 +110,19 @@
       const outcome = outcomeRaw.toUpperCase();
       const outcomeClass = outcomeRaw.toLowerCase();
 
-      const result = (caseItem.result || "unknown").toUpperCase();
-      const resultClass = result.toLowerCase();
-
+      const resultRaw = caseItem.result || "unknown";
+      const result = resultRaw.toUpperCase();
+      const resultClass = resultRaw.toLowerCase();
+    
       // ✅ Define emoji + label based on result
-      let resultPrefix = "";
-      if (result === "WIN") resultPrefix = "✅ <strong>WIN</strong>";
-      else if (result === "LOSS") resultPrefix = "❌ <strong>LOSS</strong>";
-      else if (result === "NEUTRAL") resultPrefix = "⚖️ <strong>NEUTRAL</strong>";
-      else resultPrefix = "❓ <strong>UNKNOWN</strong>";
+      let resultPrefix = "<span style='color: #aaa;'>❓ <strong>UNKNOWN</strong></span>";
+      if (result === "WIN") {
+        resultPrefix = "✅ <strong style='color: green;'>WIN</strong>";
+      } else if (result === "LOSS") {
+        resultPrefix = "❌ <strong style='color: red;'>LOSS</strong>";
+      } else if (result === "NEUTRAL") {
+        resultPrefix = "⚖️ <strong style='color: gray;'>NEUTRAL</strong>";
+      }
 
   html += `
     <li>
