@@ -43,7 +43,7 @@
 
     const sortedYears = Object.keys(cases).sort((a, b) => Number(b) - Number(a));
 
-    for (const [year, links] of Object.entries(cases)) {
+    for (const year of sortedYears) {
       html += `<li><strong>${year}</strong><ul>`;
       links.forEach(link => {
         html += `<li><a href="${link}" target="_blank">${link}</a></li>`;
