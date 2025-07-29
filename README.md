@@ -4,7 +4,7 @@ This project automates the scraping, processing, and classification of UK Court 
 
 ## 🔗 Results
 
-Interactive law firm statistics and case-level analysis can be explored here:  
+Law firm statistics table and case-by-case analysis here:
 👉 [https://liamdrans.github.io/court-of-appeal/](https://liamdrans.github.io/court-of-appeal/)
 
 ## 🧱 Project Structure
