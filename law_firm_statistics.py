@@ -195,8 +195,6 @@ protected_firms = {
     'st albans city and district council'
 }
 
-protected_firms = {f.lower().replace('the ', '').replace('&', 'and').strip() for f in protected_firms}
-
 import re
 
 def extract_firms(firm_string, protected_firms):
@@ -235,48 +233,44 @@ neutral_keywords = ['interested', 'neutral', 'intervener']
 
 results = defaultdict(lambda: {'Wins': 0, 'Losses': 0, 'Neutral_Appearances':0, 'Appellant_Appearances':0, 'Respondent_Appearances':0})
 
-case_links = defaultdict(lambda: defaultdict(set)) 
+case_links = defaultdict(lambda: defaultdict(list))
 
 for _, row in df.iterrows():
     outcome = row['outcome']
     firm_roles = row['law_firms']
 
     if outcome == 'UNCLEAR':
-        continue  # Skip these cases
+        continue
 
     for firm_string, role in firm_roles:
-
-        # Split firms on " and " to handle joined firm names
         individual_firms = extract_firms(firm_string, protected_firms)
+        role_lower = role.lower()
+        all_roles = [r.lower() for _, r in firm_roles]
+        year = str(row['year'])
+        link = row['link']
 
         for firm in individual_firms:
-            # Determine win/loss by role + outcome
-            role = role.lower()
-            all_roles = [r.lower() for _, r in firm_roles]
-            year = row['year']
-            link = row['link']
-            case_links[firm][year].add(link)
+            # ✅ Log per-case data
+            case_links[firm][year].append({
+                "url": link,
+                "role": role_lower,
+                "outcome": outcome
+            })
 
-            neutral_keywords = ['interested', 'neutral', 'intervener']
-
-            # Check if neutral
-            if any(neutral_word in role for neutral_word in neutral_keywords):
-                for firm in individual_firms:
-                    results[firm]['Neutral_Appearances'] += 1
+            if any(n in role_lower for n in ['interested', 'neutral', 'intervener']):
+                results[firm]['Neutral_Appearances'] += 1
                 continue
 
-                    # Count appearances by role
-            
-            if 'appellant' in role or 'applicant' in role or ('claimant' in role and not any('appellant' in r for r in all_roles)):
+            if 'appellant' in role_lower or 'applicant' in role_lower or ('claimant' in role_lower and not any('appellant' in r for r in all_roles)):
                 results[firm]['Appellant_Appearances'] += 1
-            elif 'respondent' or 'defendant' in role:
+            elif 'respondent' in role_lower or 'defendant' in role_lower:
                 results[firm]['Respondent_Appearances'] += 1
 
             is_winner = (
-                # this includes situations where there is ONLY the claimant in the law firm column (and no appellant)
-                (('appellant' in role or 'applicant' in role or ('claimant' in role and not any('appellant' or 'applicant' in r for r in all_roles))) and outcome == 'GRANTED')
+                (('appellant' in role_lower or 'applicant' in role_lower or ('claimant' in role_lower and not any('appellant' in r or 'applicant' in r for r in all_roles))) and outcome == 'GRANTED')
                 or
-                ('respondent' in role and outcome == 'DISMISSED'))
+                ('respondent' in role_lower and outcome == 'DISMISSED')
+            )
 
             if is_winner:
                 results[firm]['Wins'] += 1
@@ -285,6 +279,7 @@ for _, row in df.iterrows():
 
 stats_df = pd.DataFrame.from_dict(results, orient='index').reset_index()
 stats_df.columns = ['Law_Firm', 'Wins', 'Losses', 'Neutral_Appearances', 'Appellant_Appearances', 'Respondent_Appearances']
+print(stats_df)
 
 # Attach Cases as a new column
 stats_df['Cases'] = stats_df['Law_Firm'].map(

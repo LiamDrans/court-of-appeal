@@ -33,11 +33,22 @@ df_variants = df.groupby('Law_Firm')['Law_Firm(from_text)'].agg(lambda x: sorted
 
 # === 5. Merge all Cases properly ===
 def merge_case_dicts(dict_list):
-    merged = defaultdict(set)
+    merged = defaultdict(list)
+    seen = set()
+
     for d in dict_list:
-        for year, links in d.items():
-            merged[year].update(links)
-    return {year: sorted(list(links)) for year, links in merged.items()}
+        for year, cases in d.items():
+            for case in cases:
+                key = (case['url'], case.get('role'), case.get('outcome'))
+                if key not in seen:
+                    merged[year].append(case)
+                    seen.add(key)
+
+    # Sort each year's cases by URL or outcome (optional)
+    for year in merged:
+        merged[year] = sorted(merged[year], key=lambda c: c['url'])
+
+    return dict(merged)
 
 df_cases = df.groupby('Law_Firm')['Cases'].agg(merge_case_dicts).reset_index()
 

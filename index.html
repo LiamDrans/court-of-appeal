@@ -15,6 +15,26 @@
     content: "▶ ";
     padding-right: 5px;
   }
+
+  .role {
+    font-weight: bold;
+    color: #444;
+  }
+
+  .outcome.granted {
+    color: green;
+    font-weight: bold;
+  }
+
+  .outcome.dismissed {
+    color: red;
+    font-weight: bold;
+  }
+
+  .outcome.unknown {
+    color: #888;
+    font-style: italic;
+  }
   </style>
 </head>
 <body>
@@ -29,41 +49,54 @@
   // Formatter function for row expansion
 
   function format(rowData) {
-  let cases;
-  try {
-    cases = JSON.parse(rowData.Cases);
-  } catch (e) {
-    return '<em>No case data available</em>';
-  }
-
-  if (!cases || typeof cases !== 'object' || Object.keys(cases).length === 0) {
-    return '<em>No cases recorded</em>';
-  }
-
-  let html = '<div><strong>Cases by Year:</strong><ul>';
-
-  // Sort years in descending numeric order
-  const sortedYears = Object.keys(cases)
-    .map(y => parseInt(y))
-    .filter(y => !isNaN(y)) // avoid bad values
-    .sort((a, b) => b - a)
-    .map(y => y.toString());
-
-  for (const year of sortedYears) {
-    const links = cases[year];
-    if (!Array.isArray(links)) continue; // skip if not an array
-    html += `<li><strong>${year}</strong><ul>`;
-    for (const link of links) {
-      html += `<li><a href="${link}" target="_blank">${link}</a></li>`;
+    let cases;
+    try {
+      cases = JSON.parse(rowData.Cases);
+    } catch (e) {
+      return '<em>No case data available</em>';
     }
-    html += '</ul></li>';
+
+    if (!cases || typeof cases !== 'object' || Object.keys(cases).length === 0) {
+      return '<em>No cases recorded</em>';
+    }
+
+    let html = '<div><strong>Cases by Year:</strong><ul>';
+
+    const sortedYears = Object.keys(cases)
+      .map(y => parseInt(y))
+      .filter(y => !isNaN(y))
+      .sort((a, b) => b - a)
+      .map(y => y.toString());
+
+    for (const year of sortedYears) {
+      const caseList = cases[year];
+      if (!Array.isArray(caseList)) continue;
+
+      html += `<li><strong>${year}</strong><ul>`;
+
+      for (const caseItem of caseList) {
+        const url = caseItem.url || "#";
+        const role = (caseItem.role || "Unknown").toUpperCase();
+        const outcome = (caseItem.outcome || "Unknown").toUpperCase();
+        const outcomeClass = caseItem.outcome?.toLowerCase() || "unknown";
+
+        html += `
+          <li>
+            <a href="${url}" target="_blank">${url}</a>
+            <br><small>
+              <span class="role">${role}</span> — 
+              <span class="outcome ${outcomeClass}">${outcome}</span>
+            </small>
+          </li>
+        `;
+      }
+
+      html += '</ul></li>';
+    }
+
+    html += '</ul></div>';
+    return html;
   }
-
-  html += '</ul></div>';
-  return html;
-}
-
-
 
   Papa.parse('law_firm_statistics_for_page.csv', {
     download: true,
