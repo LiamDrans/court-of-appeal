@@ -10,15 +10,19 @@ df['Cases'] = df['Cases'].apply(lambda x: ast.literal_eval(x) if pd.notna(x) els
 with open("data/law_firm_statistics/law_firms_grouped_manual_sorted_v2.json", "r") as f:
     grouped_law_firms = json.load(f)
 
+def normalize(text):
+    return text.lower().strip()
+
 # === 2. Apply canonical names ===
 mapping = {}
 for group in grouped_law_firms:
     canonical = group[0]
     for variant in group:
-        mapping[variant] = canonical
+        mapping[normalize(variant)] = canonical
 
 df.rename(columns={'Law_Firm': 'Law_Firm(from_text)'}, inplace=True)
-df['Law_Firm'] = df['Law_Firm(from_text)'].map(mapping).fillna(df['Law_Firm(from_text)'])
+df['Law_Firm(from_text)_normalized'] = df['Law_Firm(from_text)'].apply(lambda x: normalize(x) if pd.notna(x) else x)
+df['Law_Firm'] = df['Law_Firm(from_text)_normalized'].map(mapping).fillna(df['Law_Firm(from_text)_normalized'])
 
 # === 3. Aggregate stats ===
 stats_cols = ['Wins', 'Losses', 'Neutral_Appearances', 'Appellant_Appearances', 'Respondent_Appearances']
