@@ -125,15 +125,11 @@ def determine_outcome(text):
     # tracking how long it takes
     print(datetime.now())
 
-    # performs nlp on the document
     doc = nlp(text)
     # last_tokens = doc[-100:]
 
-    # # takes the last 100 tokens (words) to perform the nlp analysis on
-
     matches = matcher(doc)
-    
-    # Dictionary to keep rack of how many times each decision-related keyword appears
+
     decision = {"GRANT": 0, "DISMISS": 0}
 
     last_grant_pos = -1

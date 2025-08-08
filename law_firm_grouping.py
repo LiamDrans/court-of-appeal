@@ -1,9 +1,5 @@
-import pickle
 import json
 import pandas as pd
-import ast
-import re
-from collections import defaultdict
 from difflib import get_close_matches
 
 stats_df = pd.read_csv('data/law_firm_statistics/law_firm_statistics.csv')
@@ -27,7 +23,7 @@ for firm in stats_df['Law_Firm']:
 # Convert all groups to sets before merging
 groups = [set(group) for group in groups]
 
-# Step 2: Merge overlapping groups (Union-Find-like)
+# Step 2: Merge overlapping groups
 merged = True
 while merged:
     merged = False
@@ -59,13 +55,6 @@ sorted_groups.sort()
 
 with open("law_firms_grouped_raw.json", "w") as f:
     json.dump(sorted_groups, f, indent=4)
-
-# # Display groups nicely
-# for idx, group in enumerate(sorted_groups, 1):
-#     print(f"Group {idx}:")
-#     for firm in group:
-#         print(f"  - {firm}")
-#     print()
 
 with open("data/law_firm_statistics/law_firms_grouped_manual_sorted(BACKUP).json", "r") as f:
     manual_data = json.load(f)
