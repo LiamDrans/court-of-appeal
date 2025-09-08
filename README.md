@@ -31,7 +31,3 @@ Law firm statistics table and case-by-case analysis here:
 - Legal analytics and decision trend analysis  
 - Training data for machine learning in legal NLP  
 - Judicial transparency and academic research  
-
-## 📄 License
-
-MIT License. See `LICENSE` for details.
