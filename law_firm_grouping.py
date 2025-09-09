@@ -24,28 +24,24 @@ for firm in stats_df['Law_Firm']:
 groups = [set(group) for group in groups]
 
 # Step 2: Merge overlapping groups
-merged = True
-while merged:
-    merged = False
-    new_groups = []
-    while groups:
-        first, *rest = groups
-        first = set(first)
-        changed = True
-        while changed:
-            changed = False
-            rest2 = []
-            for g in rest:
-                if first & g:  # Overlap found
-                    first |= g
-                    changed = True
-                else:
-                    rest2.append(g)
-            rest = rest2
-        new_groups.append(first)
-        groups = rest
-        merged = True if changed else merged
-    groups = new_groups
+
+def merge_overlapping(groups):
+    groups = [set(g) for g in groups]
+    while True:
+        for i, a in enumerate(groups):
+            for j in range(i + 1, len(groups)):
+                b = groups[j]
+                if a & b:
+                    groups = groups[:i] + [a | b] + groups[i+1:j] + groups[j+1:]
+                    break
+            else:
+                continue
+            break
+        else:
+            return groups
+
+
+merge_overlapping(groups)
 
 # Step 3: Sort groups for readability
 sorted_groups = [sorted(group) for group in groups]
@@ -64,3 +60,4 @@ sorted_data = sorted(manual_data, key=lambda group: group[0].lower())
 
 with open("law_firms_grouped_manual_sorted.json", "w") as f:
     json.dump(sorted_data, f, indent=4)
+
