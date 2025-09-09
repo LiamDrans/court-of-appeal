@@ -19,8 +19,6 @@ for year in years:
 
 df = df.dropna(subset=['citation'])
 
-print(df)
-
 def string_to_tuple(val):
     if pd.isna(val):
         return []
@@ -37,8 +35,6 @@ firms_to_protect_df = df.loc[
         lambda firm_list: any(' and ' in tup[0] for tup in firm_list)
     )
 ]
-
-print(len(firms_to_protect_df))
 
 firms_to_protect_df['parties'] = firms_to_protect_df['parties'].str.replace('\n', ' ', regex=True).str.strip()
 
@@ -195,8 +191,6 @@ protected_firms = {
     'st albans city and district council'
 }
 
-import re
-
 def extract_firms(firm_string, protected_firms):
     segments = [seg.strip() for seg in firm_string.split(';') if seg.strip()]
     result_firms = []
@@ -299,3 +293,4 @@ stats_df['Win_Rate'] = (stats_df['Wins'] / (stats_df['Wins'] + stats_df['Losses'
 
 # Save statistics as CSV
 stats_df.to_csv('data/law_firm_statistics/law_firm_statistics.csv', index=False)
+
