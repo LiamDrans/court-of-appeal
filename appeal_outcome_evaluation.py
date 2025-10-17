@@ -68,3 +68,8 @@ axes[1].set_ylabel('Actual')
 
 plt.tight_layout()
 plt.show()
+
+count_path = "outputs/confusion_matrix_counts.png"
+
+fig.savefig(count_path) 
+print(f"✅ Saved combined confusion matrix plot to {count_path}")
